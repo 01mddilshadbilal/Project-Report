@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Racer - Racing Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 50%, #90EE90 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .game-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 1.2em;
+        }
+
+        .stats-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .race-track {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .finish-line {
+            position: absolute;
+            right: 30px;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                #000,
+                #000 10px,
+                #fff 10px,
+                #fff 20px
+            );
+        }
+
+        .car-lane {
+            position: relative;
+            height: 80px;
+            margin-bottom: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .road-marking {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 3px;
+            background: repeating-linear-gradient(
+                to right,
+                #fff 0px,
+                #fff 30px,
+                transparent 30px,
+                transparent 60px
+            );
+            animation: roadMove 2s linear infinite;
+        }
+
+        @keyframes roadMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 0; }
+        }
+
+        .car {
+            position: absolute;
+            left: 0%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3em;
+            transition: left 0.3s ease;
+            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+        }
+
+        .player-car {
+            z-index: 10;
+        }
+
+        .car-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.3em;
+            font-weight: bold;
+            white-space: nowrap;
+            color: #2c3e50;
+        }
+
+        .text-display {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            line-height: 2;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 3px solid #667eea;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .text-display span.correct {
+            color: #28a745;
+            background: #d4edda;
+            border-radius: 3px;
+            padding: 2px 4px;
+        }
+
+        .text-display span.incorrect {
+            color: #dc3545;
+            background: #f8d7da;
+            border-radius: 3px;
+            padding: 2px 4px;
+            text-decoration: underline wavy;
+        }
+
+        .text-display span.current {
+            background: #667eea;
+            color: white;
+            border-radius: 3px;
+            padding: 2px 6px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        #input-field {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.3em;
+            border: 4px solid #667eea;
+            border-radius: 10px;
+            outline: none;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        #input-field:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 20px rgba(40, 167, 69, 0.3);
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .difficulty-selector {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .diff-btn {
+            padding: 10px 25px;
+            border: 3px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .diff-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .diff-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .message-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 3px solid #ffc107;
+            display: none;
+        }
+
+        .message-box.show {
+            display: block;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-box h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .trophy {
+            font-size: 4em;
+            margin: 10px 0;
+        }
+
+        .opponent-info {
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .car {
+                font-size: 2em;
+            }
+
+            .text-display {
+                font-size: 1.2em;
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🏁 Type Racer - Racing Game 🏎️</h1>
+            <p class="subtitle">Tez type karo aur race jeeto!</p>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">⏱️ Time</div>
+                    <div class="stat-value" id="timer">60</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">⚡ WPM</div>
+                    <div class="stat-value" id="wpm">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">🎯 Accuracy</div>
+                    <div class="stat-value" id="accuracy">100%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">📊 Progress</div>
+                    <div class="stat-value" id="progress">0%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">🏆 Position</div>
+                    <div class="stat-value" id="position">1st</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="difficulty-selector">
+            <button class="diff-btn active" onclick="setDifficulty('easy')">😊 Easy</button>
+            <button class="diff-btn" onclick="setDifficulty('medium')">🔥 Medium</button>
+            <button class="diff-btn" onclick="setDifficulty('hard')">💪 Hard</button>
+        </div>
+
+        <div class="opponent-info" id="opponent-info">
+            🤖 Aap <strong id="opponent-count">3</strong> opponents ke saath race kar rahe ho!
+        </div>
+
+        <div class="race-track">
+            <div class="finish-line"></div>
+            
+            <div class="car-lane">
+                <div class="road-marking"></div>
+                <div class="car player-car" id="player-car">
+                    🏎️
+                    <div class="car-label">YOU</div>
+                </div>
+            </div>
+
+            <div class="car-lane">
+                <div class="road-marking"></div>
+                <div class="car" id="opponent1">
+                    🚗
+                    <div class="car-label">Bot 1</div>
+                </div>
+            </div>
+
+            <div class="car-lane">
+                <div class="road-marking"></div>
+                <div class="car" id="opponent2">
+                    🚙
+                    <div class="car-label">Bot 2</div>
+                </div>
+            </div>
+
+            <div class="car-lane">
+                <div class="road-marking"></div>
+                <div class="car" id="opponent3">
+                    🚕
+                    <div class="car-label">Bot 3</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box" id="message-box">
+            <div class="trophy">🏆</div>
+            <h2 id="result-title">Congratulations!</h2>
+            <p id="result-message"></p>
+        </div>
+
+        <div class="text-display" id="text-display"></div>
+
+        <input 
+            type="text" 
+            id="input-field" 
+            placeholder="Type karna shuru karein... Race start hogi!"
+            autocomplete="off"
+            spellcheck="false"
+        >
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="startRace()">🚀 Start Race</button>
+            <button class="btn btn-secondary" onclick="resetRace()">🔄 Reset</button>
+        </div>
+    </div>
+
+    <script>
+        const sentences = {
+            easy: [
+                "The quick brown fox jumps over the lazy dog and runs away fast.",
+                "Learning to type quickly takes practice and patience every single day.",
+                "The sun rises in the east and sets in the beautiful western sky.",
+                "Racing games are fun when you type fast and beat your opponents.",
+                "Practice makes perfect when you work hard and never give up easily."
+            ],
+            medium: [
+                "Success is not final, failure is not fatal: it is the courage to continue that counts in every race of life.",
+                "The only way to do great work is to love what you do and work with passion and dedication always.",
+                "Technology is best when it brings people together and makes our daily lives easier and more productive.",
+                "Every expert was once a beginner who never gave up on their dreams and kept practicing consistently.",
+                "Racing requires focus, speed, and accuracy to win against tough opponents in competitive environments."
+            ],
+            hard: [
+                "In the midst of chaos, there is also opportunity; the pessimist sees difficulty in every opportunity, while the optimist sees opportunity in every difficulty and challenge.",
+                "The future belongs to those who believe in the beauty of their dreams and have the courage to pursue them relentlessly despite all obstacles and setbacks.",
+                "Intelligence without ambition is a bird without wings; therefore, combine knowledge with determination to achieve extraordinary results in competitive racing and life.",
+                "Professional typing racers combine exceptional speed with near-perfect accuracy, maintaining consistency under pressure while competing against skilled opponents worldwide.",
+                "Success in racing games requires mastering the fundamentals: proper finger positioning, rhythmic typing patterns, and maintaining composure during intense competitive moments."
+            ]
+        };
+
+        let difficulty = 'easy';
+        let currentText = '';
+        let startTime = null;
+        let raceTimer = null;
+        let timeLeft = 60;
+        let gameStarted = false;
+        let raceFinished = false;
+        let correctChars = 0;
+        let totalChars = 0;
+        
+        let opponentSpeeds = {
+            opponent1: 0,
+            opponent2: 0,
+            opponent3: 0
+        };
+        let opponentIntervals = {};
+
+        function setDifficulty(level) {
+            if (gameStarted) return;
+            
+            difficulty = level;
+            document.querySelectorAll('.diff-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            loadNewText();
+        }
+
+        function loadNewText() {
+            const textArray = sentences[difficulty];
+            currentText = textArray[Math.floor(Math.random() * textArray.length)];
+            displayText();
+        }
+
+        function displayText() {
+            const display = document.getElementById('text-display');
+            display.innerHTML = '';
+            
+            for (let i = 0; i < currentText.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = currentText[i];
+                
+                if (i === 0) {
+                    span.classList.add('current');
+                }
+                
+                display.appendChild(span);
+            }
+        }
+
+        function startRace() {
+            if (gameStarted) return;
+            
+            resetRace();
+            gameStarted = true;
+            raceFinished = false;
+            document.getElementById('input-field').disabled = false;
+            document.getElementById('input-field').focus();
+            document.getElementById('message-box').classList.remove('show');
+            
+            // Set random opponent speeds based on difficulty
+            const baseSpeed = difficulty === 'easy' ? 30 : difficulty === 'medium' ? 45 : 60;
+            opponentSpeeds.opponent1 = baseSpeed + Math.random() * 15;
+            opponentSpeeds.opponent2 = baseSpeed + Math.random() * 15;
+            opponentSpeeds.opponent3 = baseSpeed + Math.random() * 15;
+        }
+
+        function startTimer() {
+            raceTimer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if (timeLeft <= 0 && !raceFinished) {
+                    finishRace(false);
+                }
+            }, 1000);
+        }
+
+        function updateOpponents() {
+            Object.keys(opponentSpeeds).forEach(id => {
+                if (!opponentIntervals[id]) {
+                    opponentIntervals[id] = setInterval(() => {
+                        if (raceFinished) {
+                            clearInterval(opponentIntervals[id]);
+                            return;
+                        }
+                        
+                        const car = document.getElementById(id);
+                        const currentPos = parseFloat(car.style.left || 0);
+                        const speed = opponentSpeeds[id] / 100;
+                        const newPos = Math.min(currentPos + speed, 92);
+                        car.style.left = newPos + '%';
+                        
+                        if (newPos >= 92) {
+                            clearInterval(opponentIntervals[id]);
+                            if (!raceFinished) {
+                                finishRace(false);
+                            }
+                        }
+                    }, 100);
+                }
+            });
+        }
+
+        function updateCarPosition(progress) {
+            const playerCar = document.getElementById('player-car');
+            const maxPosition = 92;
+            playerCar.style.left = (progress * maxPosition) + '%';
+            
+            if (progress >= 1 && !raceFinished) {
+                finishRace(true);
+            }
+        }
+
+        function calculatePosition() {
+            const playerPos = parseFloat(document.getElementById('player-car').style.left || 0);
+            const positions = [
+                { name: 'YOU', pos: playerPos },
+                { name: 'Bot 1', pos: parseFloat(document.getElementById('opponent1').style.left || 0) },
+                { name: 'Bot 2', pos: parseFloat(document.getElementById('opponent2').style.left || 0) },
+                { name: 'Bot 3', pos: parseFloat(document.getElementById('opponent3').style.left || 0) }
+            ];
+            
+            positions.sort((a, b) => b.pos - a.pos);
+            const playerRank = positions.findIndex(p => p.name === 'YOU') + 1;
+            
+            const suffix = playerRank === 1 ? 'st' : playerRank === 2 ? 'nd' : playerRank === 3 ? 'rd' : 'th';
+            document.getElementById('position').textContent = playerRank + suffix;
+            
+            return playerRank;
+        }
+
+        function finishRace(playerWon) {
+            if (raceFinished) return;
+            
+            raceFinished = true;
+            gameStarted = false;
+            clearInterval(raceTimer);
+            Object.values(opponentIntervals).forEach(clearInterval);
+            opponentIntervals = {};
+            
+            document.getElementById('input-field').disabled = true;
+            
+            const wpm = document.getElementById('wpm').textContent;
+            const accuracy = document.getElementById('accuracy').textContent;
+            const position = calculatePosition();
+            
+            const messageBox = document.getElementById('message-box');
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            
+            if (position === 1) {
+                resultTitle.textContent = '🏆 Congratulations! You Won! 🏆';
+                resultMessage.innerHTML = `<strong>1st Place!</strong><br>WPM: ${wpm} | Accuracy: ${accuracy}<br>Bahut badhiya! Aap sabse tez the! 🎉`;
+            } else if (position === 2) {
+                resultTitle.textContent = '🥈 Great Job! 2nd Place!';
+                resultMessage.innerHTML = `WPM: ${wpm} | Accuracy: ${accuracy}<br>Achha khela! Thoda aur practice karo! 💪`;
+            } else if (position === 3) {
+                resultTitle.textContent = '🥉 Nice Try! 3rd Place!';
+                resultMessage.innerHTML = `WPM: ${wpm} | Accuracy: ${accuracy}<br>Practice karte raho, better hoga! 🔥`;
+            } else {
+                resultTitle.textContent = '😔 Race Lost!';
+                resultMessage.innerHTML = `4th Place<br>WPM: ${wpm} | Accuracy: ${accuracy}<br>Koi baat nahi! Dobara try karo! 🚀`;
+            }
+            
+            messageBox.classList.add('show');
+        }
+
+        function resetRace() {
+            clearInterval(raceTimer);
+            Object.values(opponentIntervals).forEach(clearInterval);
+            opponentIntervals = {};
+            
+            gameStarted = false;
+            raceFinished = false;
+            startTime = null;
+            timeLeft = 60;
+            correctChars = 0;
+            totalChars = 0;
+            
+            document.getElementById('timer').textContent = '60';
+            document.getElementById('wpm').textContent = '0';
+            document.getElementById('accuracy').textContent = '100%';
+            document.getElementById('progress').textContent = '0%';
+            document.getElementById('position').textContent = '1st';
+            document.getElementById('input-field').value = '';
+            document.getElementById('input-field').disabled = false;
+            document.getElementById('message-box').classList.remove('show');
+            
+            document.getElementById('player-car').style.left = '0%';
+            document.getElementById('opponent1').style.left = '0%';
+            document.getElementById('opponent2').style.left = '0%';
+            document.getElementById('opponent3').style.left = '0%';
+            
+            loadNewText();
+        }
+
+        document.getElementById('input-field').addEventListener('input', function(e) {
+            if (!gameStarted || raceFinished) return;
+            
+            if (!startTime) {
+                startTime = Date.now();
+                startTimer();
+                updateOpponents();
+            }
+            
+            const inputText = e.target.value;
+            const display = document.getElementById('text-display');
+            display.innerHTML = '';
+            
+            let correct = 0;
+            
+            for (let i = 0; i < currentText.length; i++) {
+                const span = document.createElement('span');
+                span.textContent = currentText[i];
+                
+                if (i < inputText.length) {
+                    if (inputText[i] === currentText[i]) {
+                        span.classList.add('correct');
+                        correct++;
+                    } else {
+                        span.classList.add('incorrect');
+                    }
+                } else if (i === inputText.length) {
+                    span.classList.add('current');
+                }
+                
+                display.appendChild(span);
+            }
+            
+            correctChars = correct;
+            totalChars = inputText.length;
+            
+            const timeElapsedMinutes = (Date.now() - startTime) / 1000 / 60;
+            const wpm = timeElapsedMinutes > 0 ? Math.round((correctChars / 5) / timeElapsedMinutes) : 0;
+            const accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+            const progress = Math.round((inputText.length / currentText.length) * 100);
+            
+            document.getElementById('wpm').textContent = wpm;
+            document.getElementById('accuracy').textContent = accuracy + '%';
+            document.getElementById('progress').textContent = progress + '%';
+            
+            updateCarPosition(inputText.length / currentText.length);
+            calculatePosition();
+            
+            if (inputText === currentText) {
+                finishRace(true);
+            }
+        });
+
+        document.getElementById('input-field').addEventListener('paste', (e) => {
+            e.preventDefault();
+        });
+
+        loadNewText();
+    </script>
+</body>
+</html>
