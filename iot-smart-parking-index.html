@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Parking Door System Using IoT — Project Report</title>
+<style>
+:root{--bg:#050a09;--panel:#0b1713;--panel2:#0e211a;--line:rgba(57,245,163,.18);--g:#39f5a3;--g2:#9dffd1;--gold:#e9c46a;--text:#f4fff9;--muted:#a8c2b7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0,rgba(57,245,163,.1),transparent 30%),radial-gradient(circle at 90% 20%,rgba(233,196,106,.1),transparent 30%),var(--bg);color:var(--text);font:16px/1.65 Inter,Segoe UI,Arial,sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:0 22px}a{color:var(--g2);text-decoration:none}
+#splash{position:fixed;inset:0;z-index:9999;background:#020605;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:.7s}.hide{opacity:0;visibility:hidden}
+.splashText{position:absolute;top:9%;z-index:4;text-align:center}.splashText h1{font-size:clamp(30px,5vw,65px);margin:12px 0}.splashText p{color:var(--muted)}.badge{display:inline-block;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--g2);font-size:12px;font-weight:800;letter-spacing:.08em}
+.road{position:absolute;bottom:0;width:100%;height:38%;background:#111715;transform:perspective(350px) rotateX(58deg);transform-origin:bottom}.road:after{content:"";position:absolute;inset:48% -100% 0;background:repeating-linear-gradient(90deg,transparent 0 110px,#d9e5df 110px 165px,transparent 165px 300px);height:9px;animation:move .42s linear infinite}@keyframes move{to{transform:translateX(-300px)}}
+.gate{position:absolute;bottom:18%;z-index:3;width:min(680px,85vw);filter:drop-shadow(0 20px 35px #000);animation:float 1.5s ease-in-out infinite alternate}@keyframes float{to{transform:translateY(-9px)}}
+.car{position:absolute;bottom:12%;left:8%;font-size:80px;z-index:2;filter:drop-shadow(0 0 18px #39f5a3)}
+header{position:sticky;top:0;z-index:50;background:rgba(5,10,9,.86);backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}nav{height:70px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900}.brand span{color:var(--g)}nav .links{display:flex;gap:17px;font-size:13px}.links a{color:#d9eee5}
+.hero{min-height:calc(100vh - 70px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px;padding:70px 0}.hero h1{font-size:clamp(42px,6vw,76px);line-height:1.02;margin:18px 0}.hero h1 em{color:var(--g);font-style:normal}.lead{font-size:18px;color:var(--muted)}.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}.meta div,.card{padding:21px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(57,245,163,.025));box-shadow:0 12px 35px rgba(0,0,0,.18)}.meta b{display:block;color:var(--g2);font-size:12px;text-transform:uppercase}.heroVisual{border:1px solid var(--line);border-radius:30px;padding:25px;min-height:500px;background:radial-gradient(circle at 50% 55%,rgba(57,245,163,.12),transparent 35%),#09130f;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.scene{width:100%;height:420px;position:relative}.scene .sky{position:absolute;inset:0;background:linear-gradient(#07130f,#0b1713 58%,#101915)}.scene .city{position:absolute;bottom:115px;left:0;right:0;height:130px;background:repeating-linear-gradient(90deg,#0a1411 0 55px,#0e1d18 55px 95px);opacity:.8}.scene .parking{position:absolute;bottom:0;left:0;right:0;height:125px;background:linear-gradient(170deg,#111a17,#080d0c)}.barrier{position:absolute;right:14%;bottom:108px;width:175px;height:18px;background:repeating-linear-gradient(135deg,#f1f1e9 0 22px,#d34b34 22px 44px);transform:rotate(-5deg);transform-origin:right center;border:3px solid #222;border-radius:5px}.post{position:absolute;right:10%;bottom:40px;width:55px;height:100px;background:linear-gradient(90deg,#6b4910,#e9c46a,#68450c);border-radius:7px}.servo{position:absolute;right:2%;bottom:118px;width:50px;height:48px;border-radius:8px;background:#222;border:2px solid #aaa}.sensor{position:absolute;left:15%;bottom:150px;width:60px;height:38px;border-radius:9px;background:#142a22;border:2px solid var(--g)}.sensor:after{content:"IR";position:absolute;inset:5px;text-align:center;color:var(--g);font-weight:900}.wave{position:absolute;left:20%;bottom:145px;width:180px;height:90px;border-right:4px solid var(--g);border-radius:50%;box-shadow:25px 0 0 -20px var(--g),50px 0 0 -20px var(--g);opacity:.7}.carShape{position:absolute;left:5%;bottom:55px;font-size:90px}
+section{padding:78px 0}.title{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}.title h2{font-size:36px;margin:0}.title p{color:var(--muted);max-width:650px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card h3{margin:0 0 8px}.card p{color:var(--muted);margin:0}.icon{font-size:27px}.table{overflow:auto;border:1px solid var(--line);border-radius:20px}table{width:100%;border-collapse:collapse;min-width:700px}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left}th{background:#0b1b15;color:var(--g2)}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:center}.node{padding:20px 10px;text-align:center;background:#0c2018;border:1px solid var(--line);border-radius:18px}.arrow{text-align:center;color:var(--g);font-size:25px}
+.timeline{border-left:2px solid var(--line);padding-left:25px}.step{position:relative;margin-bottom:23px}.step:before{content:"";position:absolute;left:-33px;top:8px;width:13px;height:13px;background:var(--g);border-radius:50%;box-shadow:0 0 16px var(--g)}.step b{color:var(--g2)}
+.declare{padding:24px;border-left:4px solid var(--g);background:rgba(57,245,163,.06);border-radius:0 18px 18px 0}footer{padding:50px 0 80px;border-top:1px solid var(--line);color:var(--muted)}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}nav .links{display:none}}
+@media(max-width:560px){.grid,.meta{grid-template-columns:1fr}.hero{padding-top:45px}}
+@media print{#splash,header{display:none!important}body{background:white;color:#111}.card,.heroVisual,.table{box-shadow:none;background:white;border-color:#bbb}.card p,.title p,footer{color:#444}}
+</style>
+</head>
+<body>
+<div id="splash">
+  <div class="splashText"><div class="badge">MAJOR PROJECT REPORT • IoT PARKING</div><h1>SMART <span style="color:#39f5a3">PARKING</span></h1><p>Loading your automated parking gate report…</p></div>
+  <div class="road"></div><div class="car">🚘</div>
+  <div class="gate">
+    <div style="height:18px;width:75%;margin-left:25%;background:repeating-linear-gradient(135deg,#eee 0 22px,#d44d36 22px 44px);transform:rotate(-5deg);transform-origin:right;border:3px solid #222;border-radius:5px"></div>
+    <div style="width:55px;height:105px;background:linear-gradient(90deg,#68460d,#e9c46a,#68460d);margin-left:auto;border-radius:7px"></div>
+  </div>
+</div>
+
+<header><div class="wrap"><nav><div class="brand">MD DILSHAD <span>ALAM</span> · REPORT</div><div class="links"><a href="#overview">Overview</a><a href="#items">Components</a><a href="#working">Working</a><a href="#benefits">Benefits</a><a href="#application">Applications</a></div></nav></div></header>
+
+<main>
+<section class="hero wrap" id="overview">
+<div><div class="badge">INDIVIDUAL PROJECT • ACADEMIC YEAR 2025–2026</div>
+<h1>Smart Parking <em>Door System</em><br>Using IoT</h1>
+<p class="lead">An automated parking gate concept using Arduino Uno, an IR sensor and a servo motor to detect a vehicle and operate the gate automatically.</p>
+<div class="meta">
+<div><b>Developed by</b><span>MD DILSHAD ALAM</span></div>
+<div><b>Project type</b><span>Individual Project</span></div>
+<div><b>Technology</b><span>Arduino + IR Sensor + Servo Motor</span></div>
+<div><b>Domain</b><span>IoT / Embedded Systems</span></div>
+</div></div>
+<div class="heroVisual"><div class="scene"><div class="sky"></div><div class="city"></div><div class="parking"></div><div class="wave"></div><div class="sensor"></div><div class="barrier"></div><div class="post"></div><div class="servo"></div><div class="carShape">🚘</div></div></div>
+</section>
+
+<section class="wrap"><div class="declare"><b>Project authorship:</b> This version presents the project as an <b>individual project by MD DILSHAD ALAM</b>. No team member is listed. The design and development are presented as individual work with AI assistance used as a development/support aid.</div></section>
+
+<section class="wrap" id="items"><div class="title"><div><h2>Components required</h2><p>These are the main hardware items needed for the documented Smart Parking Door System.</p></div></div>
+<div class="grid">
+<div class="card"><div class="icon">🧠</div><h3>Arduino Uno</h3><p>Main controller. Reads the IR sensor and controls the servo motor according to the detected vehicle condition.</p></div>
+<div class="card"><div class="icon">📡</div><h3>IR Sensor</h3><p>Detects the presence of a vehicle near the gate and provides the input signal to the Arduino.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>Servo Motor</h3><p>Moves the parking barrier between its closed and open positions.</p></div>
+<div class="card"><div class="icon">🔌</div><h3>Jumper Wires</h3><p>Used to connect the Arduino, sensor and servo during prototype assembly.</p></div>
+<div class="card"><div class="icon">🧪</div><h3>Breadboard / Prototype Base</h3><p>Useful for making temporary connections during testing without permanent soldering.</p></div>
+<div class="card"><div class="icon">🔋</div><h3>Power Supply / USB</h3><p>Provides suitable power to the Arduino and the connected prototype components.</p></div>
+<div class="card"><div class="icon">🚧</div><h3>Barrier Arm</h3><p>A lightweight gate arm mechanically connected to the servo to represent the parking entrance barrier.</p></div>
+<div class="card"><div class="icon">🅿️</div><h3>Parking Model / Stand</h3><p>Physical structure used to demonstrate the automated gate concept in a parking environment.</p></div>
+</div></section>
+
+<section class="wrap"><div class="title"><div><h2>Component summary</h2><p>A compact bill-of-materials style view.</p></div></div>
+<div class="table"><table><thead><tr><th>Item</th><th>Purpose</th><th>Required in prototype</th></tr></thead><tbody>
+<tr><td>Arduino Uno</td><td>Control logic</td><td>Yes</td></tr><tr><td>IR Sensor</td><td>Vehicle detection</td><td>Yes</td></tr><tr><td>Servo Motor</td><td>Barrier movement</td><td>Yes</td></tr><tr><td>Jumper Wires</td><td>Electrical connections</td><td>Yes</td></tr><tr><td>Breadboard / base</td><td>Prototype assembly</td><td>Recommended</td></tr><tr><td>USB / suitable power source</td><td>Power</td><td>Yes</td></tr><tr><td>Barrier arm + stand</td><td>Mechanical gate model</td><td>Yes</td></tr></tbody></table></div></section>
+
+<section class="wrap" id="working"><div class="title"><div><h2>How the system works</h2><p>The control process is automatic: sensor input → Arduino decision → servo movement.</p></div></div>
+<div class="flow"><div class="node">🚗<br><b>Vehicle</b><br><small>Approaches gate</small></div><div class="arrow">→</div><div class="node">📡<br><b>IR Sensor</b><br><small>Detects vehicle</small></div><div class="arrow">→</div><div class="node">🧠<br><b>Arduino Uno</b><br><small>Processes signal</small></div></div>
+<div class="flow" style="margin-top:14px"><div class="node">🧠<br><b>Decision</b><br><small>Open / close</small></div><div class="arrow">→</div><div class="node">⚙️<br><b>Servo Motor</b><br><small>Moves barrier</small></div><div class="arrow">→</div><div class="node">🚧<br><b>Gate</b><br><small>Vehicle access</small></div></div>
+<div class="timeline" style="margin-top:35px">
+<div class="step"><b>1. Detection:</b> The IR sensor monitors the entrance area.</div>
+<div class="step"><b>2. Input:</b> When a vehicle is detected, the sensor state is read by the Arduino.</div>
+<div class="step"><b>3. Processing:</b> Arduino applies the programmed gate-control logic.</div>
+<div class="step"><b>4. Opening:</b> The servo rotates the barrier to allow vehicle movement.</div>
+<div class="step"><b>5. Closing:</b> After the programmed condition, the servo returns the barrier toward its closed position.</div>
+</div></section>
+
+<section class="wrap" id="benefits"><div class="title"><div><h2>Benefits of the project</h2><p>Practical benefits of the automated parking-gate concept described in the supplied project material.</p></div></div>
+<div class="grid">
+<div class="card"><div class="icon">🚘</div><h3>Automatic Vehicle Detection</h3><p>Reduces the need for a person to manually identify an approaching vehicle at the gate.</p></div>
+<div class="card"><div class="icon">⚡</div><h3>Fast Response</h3><p>The supplied report describes a response target of less than 0.5 seconds for the prototype.</p></div>
+<div class="card"><div class="icon">💰</div><h3>Low-Cost Prototype</h3><p>The supplied report describes an approximate prototype cost in the ₹500–₹800 range.</p></div>
+<div class="card"><div class="icon">🅿️</div><h3>Smarter Parking Entry</h3><p>Automates a basic parking-entry task and demonstrates a practical IoT/embedded-system use case.</p></div>
+<div class="card"><div class="icon">🙌</div><h3>Less Manual Effort</h3><p>Automatic barrier operation can reduce repetitive manual gate handling in a small parking setup.</p></div>
+<div class="card"><div class="icon">🔧</div><h3>Easy to Prototype</h3><p>Arduino, IR sensing and servo control make the concept suitable for academic demonstration and experimentation.</p></div>
+</div></section>
+
+<section class="wrap" id="application"><div class="title"><div><h2>Applications</h2><p>Where the concept can be used or extended.</p></div></div>
+<div class="grid">
+<div class="card"><h3>🏢 Office / Institution Parking</h3><p>Automated entry barrier for small controlled parking areas.</p></div>
+<div class="card"><h3>🏠 Residential Parking</h3><p>Prototype for automatic vehicle-entry control at residential gates.</p></div>
+<div class="card"><h3>🏬 Commercial Parking</h3><p>Demonstrates the basic logic used in smart parking access systems.</p></div>
+<div class="card"><h3>🎓 Educational Robotics</h3><p>Useful for learning sensors, microcontrollers, servo control and automation.</p></div>
+<div class="card"><h3>🤖 Embedded Automation</h3><p>Can serve as a foundation for more advanced IoT parking prototypes.</p></div>
+<div class="card"><h3>🧪 Prototype Research</h3><p>Provides a simple platform for testing additional identification and monitoring technologies.</p></div>
+</div></section>
+
+<section class="wrap"><div class="title"><div><h2>Project strengths in one view</h2><p>Key documented points from the supplied project concept.</p></div></div>
+<div class="table"><table><thead><tr><th>Aspect</th><th>Documented concept</th></tr></thead><tbody>
+<tr><td>Controller</td><td>Arduino Uno</td></tr><tr><td>Detection</td><td>IR Sensor</td></tr><tr><td>Actuator</td><td>Servo Motor</td></tr><tr><td>Automation</td><td>Vehicle detection → automatic barrier control</td></tr><tr><td>Approx. prototype cost</td><td>₹500–₹800 (as stated in supplied material)</td></tr><tr><td>Reported response</td><td>&lt; 0.5 sec (as stated in supplied material)</td></tr><tr><td>Core benefit</td><td>Reduced manual effort and improved parking-entry automation</td></tr></tbody></table></div></section>
+
+<section class="wrap"><div class="title"><div><h2>Conclusion</h2><p>Academic project summary.</p></div></div>
+<div class="declare">The Smart Parking Door System demonstrates a compact automated gate using <b>Arduino Uno + IR Sensor + Servo Motor</b>. The system detects a vehicle, processes the sensor input and controls the barrier automatically. Its low component count, simple control logic and low prototype cost make it suitable for demonstrating IoT and embedded automation concepts.</div></section>
+
+<section class="wrap"><div class="title"><div><h2>Individual declaration</h2></div></div>
+<div class="card"><p>I, <b>MD DILSHAD ALAM</b>, present this project report as an individual project. The design and development were carried out individually with AI assistance used as a development/support aid. No team member is included in this version of the report.</p></div></section>
+</main>
+<footer><div class="wrap"><b style="color:white">MD DILSHAD ALAM</b><br>Smart Parking Door System Using IoT · Individual Project Report</div></footer>
+<script>setTimeout(()=>document.getElementById('splash').classList.add('hide'),4000)</script>
+</body></html>
