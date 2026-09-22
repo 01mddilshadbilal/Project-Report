@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05060b">
+  <meta name="description" content="TDS Tech Solution — premium digital project universe by MD Dilshad Alam.">
+  <title>TDS Tech Solution — Project Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="ambient ambient-c"></div>
+
+  <!-- =====================================================
+       PREMIUM 3–5 SECOND INTRO
+       ===================================================== -->
+  <section class="intro" id="intro">
+    <div class="intro-grid"></div>
+    <div class="intro-orbit intro-orbit-a"></div>
+    <div class="intro-orbit intro-orbit-b"></div>
+    <div class="intro-center">
+      <div class="logo-stage large">
+        <div class="logo-glow"></div>
+        <div class="logo-ring ring-1"></div>
+        <div class="logo-ring ring-2"></div>
+        <div class="logo-ring ring-3"></div>
+        <img class="tds-logo-image intro-logo" src="tds-logo.png" alt="TDS Tech Solution logo">
+      </div>
+      <div class="intro-brand">TDS Tech Solution</div>
+      <div class="intro-sub">PROJECT UNIVERSE • DIGITAL WORKS</div>
+      <div class="intro-ai">✦ BUILT WITH AI ASSISTANCE • HUMAN DIRECTION</div>
+      <div class="intro-loading"><span></span></div>
+      <button class="skip-intro magnetic" id="skipIntro">ENTER NOW <b>↗</b></button>
+    </div>
+  </section>
+
+  <header class="site-header">
+    <a class="brand-lockup" href="#home" aria-label="TDS Tech Solution home">
+      <div class="brand-logo-shell">
+        <img class="tds-logo-image mini" src="logo-.png" alt="TDS Tech Solution logo">
+      </div>
+      <div class="brand-name-wrap">
+        <div class="brand-name-frame"><span class="brand-name">TDS Tech Solution</span></div>
+        <span class="brand-sub">PROJECT UNIVERSE • DIGITAL WORKS</span>
+      </div>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#contact">Contact</a>
+          </nav>
+
+    <button class="menu-btn magnetic" id="menuBtn" aria-label="Open navigation"><span></span><span></span></button>
+  </header>
+
+  <main id="home">
+    <!-- =====================================================
+         HOME
+         ===================================================== -->
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><i></i> PROJECT UNIVERSE <span>•</span> DIGITAL WORKS</div>
+        <h1>Ideas into<br><em>interactive reality.</em></h1>
+        <p class="hero-text">
+          The personal technology archive of <strong>MD DILSHAD ALAM</strong> — bringing together Android apps,
+          web experiences, IoT builds and future AI experiments under <strong>TDS Tech Solution</strong>.
+        </p>
+        <div class="hero-ai-note"><span>✦</span> Projects created with AI assistance + personal direction, implementation and refinement.</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#projects">Explore Projects <span>↗</span></a>
+          <a class="btn btn-ghost magnetic" href="#about">Meet the Creator <span>↓</span></a>
+        </div>
+        <div class="stats">
+          <div><b>08+</b><span>Current works</span></div>
+          <div><b>04</b><span>Tech areas</span></div>
+          <div><b>01</b><span>Creator</span></div>
+          <div><b>∞</b><span>Future builds</span></div>
+        </div>
+      </div>
+
+      <!-- Previous-style right-side featured card -->
+      <div class="hero-visual reveal delay-1">
+        <div class="hero-orbit orbit-x"></div>
+        <div class="hero-orbit orbit-y"></div>
+        <div class="hero-card tilt-card" id="featuredCard">
+          <div class="hero-card-top"><span id="featuredIndex">01 / 08</span><span class="live"><i></i> LIVE ARCHIVE</span></div>
+          <div class="hero-card-stage">
+            <div class="scan-ring"></div>
+            <div class="scan-ring ring-b"></div>
+            <div class="hero-card-logo"><img class="tds-logo-image hero-logo" src="tds-logo.png" alt="TDS Tech Solution logo"></div>
+            <div class="card-particles"></div>
+          </div>
+          <div class="featured-copy">
+            <div class="featured-kicker" id="featuredCategory">ANDROID • AI ASSISTED</div>
+            <h3 id="featuredTitle">Expense Manager</h3>
+            <p id="featuredDesc">Personal finance management workflow with expenses, income and ledger-style records.</p>
+            <div class="featured-tags" id="featuredTags"><span>Android</span><span>Java</span><span>SQLite</span></div>
+            <button class="mini-action magnetic" id="featuredOpen">OPEN PROJECT <b>↗</b></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track"><span>ANDROID</span><b>✦</b><span>WEB</span><b>✦</b><span>IoT</span><b>✦</b><span>AI</span><b>✦</b><span>UI / UX</span><b>✦</b><span>ANDROID</span><b>✦</b><span>WEB</span><b>✦</b><span>IoT</span><b>✦</b><span>AI</span><b>✦</b><span>UI / UX</span><b>✦</b></div>
+    </div>
+
+    <!-- =====================================================
+         PROJECTS
+         ===================================================== -->
+    <section class="projects section" id="projects">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow"><i></i> SELECTED WORKS</div>
+          <h2>Project <em>Universe</em></h2>
+        </div>
+        <p>Explore the projects through their details, technology, features, reports and available live demos.</p>
+      </div>
+
+      <div class="filters reveal delay-1" id="filters"></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <!-- =====================================================
+         AGENTX SPECIAL PROJECT
+         ===================================================== -->
+    <section class="agentx section" id="agentx">
+      <div class="agentx-shell reveal">
+        <div class="agentx-copy">
+          <div class="special-badge">✦ SPECIAL PROJECT • IN DEVELOPMENT</div>
+          <h2>TDS <em>AgentX AI</em></h2>
+          <p>
+            A future all-in-one AI platform currently being developed to assist with <strong>image, video,
+            website, Android app and other generation workflows</strong>. It is intentionally presented as a special upcoming build.
+          </p>
+          <div class="coming-soon"><span></span> COMING SOON • BUILD IN PROGRESS</div>
+          <div class="agentx-mini-grid">
+            <div>IMAGE<span>Generation</span></div>
+            <div>VIDEO<span>Generation</span></div>
+            <div>WEB<span>Generation</span></div>
+            <div>ANDROID<span>Generation</span></div>
+          </div>
+        </div>
+        <div class="agentx-visual"><div class="agent-orb"></div><div class="agent-axis axis-a"></div><div class="agent-axis axis-b"></div><div class="agent-core-text">AGENTX</div></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+    <section class="about section" id="about">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow"><i></i> ABOUT THE CREATOR</div>
+          <h2>MD DILSHAD <em>ALAM</em></h2>
+        </div>
+        <p>One creator, one project universe — documenting software, hardware, experiments and the path toward building TDS AgentX AI.</p>
+      </div>
+      <div class="about-grid">
+        <div class="glass-panel reveal">
+          <div class="panel-label">CREATION MODEL</div>
+          <h3>Human direction.<br><em>AI-assisted execution.</em></h3>
+          <p>
+            The portfolio projects are presented as individual builds created by MD DILSHAD ALAM.
+            AI tools are used as a development and creative assistant while the project direction, testing and refinement remain part of the build process.
+          </p>
+        </div>
+        <div class="glass-panel reveal delay-1">
+          <div class="panel-label">CURRENT FOCUS</div>
+          <div class="focus-row"><span>ANDROID</span><b>Apps & utilities</b></div>
+          <div class="focus-row"><span>WEB</span><b>Interactive browser projects</b></div>
+          <div class="focus-row"><span>IoT</span><b>Connected hardware & control</b></div>
+          <div class="focus-row"><span>AI</span><b>TDS AgentX — in development</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+    <section class="contact section" id="contact">
+      <div class="section-head reveal">
+        <div><div class="eyebrow"><i></i> CONTACT</div><h2>Let's build <em>something.</em></h2></div>
+        <p>For project discussions, collaboration and technical conversations, choose your preferred contact method.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="glass-panel contact-info reveal">
+          <div class="panel-label">TDS TECH SOLUTION</div>
+          <h3>Project discussion,<br>collaboration or technical conversation.</h3>
+          <p>Choose Email or WhatsApp when you send the form. Social profiles are available below.</p>
+          <div class="contact-list">
+            <div><span>EMAIL</span><a href="mailto:mddilshadbilal@gmail.com">mddilshadbilal@gmail.com</a></div>
+            <div><span>WHATSAPP / PHONE</span><a href="https://wa.me/917654406857">+91 76544 06857</a></div>
+            <div><span>LOCATION</span><b>Patna, Bihar, India</b></div>
+          </div>
+          <div class="social-links">
+            <a href="https://www.instagram.com/mddilshadbilal786/" target="_blank" rel="noopener">Instagram <span>@mddilshadbilal786</span></a>
+            <a href="https://www.linkedin.com/search/results/people/?keywords=Md%20Dilshad%20Bilal" target="_blank" rel="noopener">LinkedIn <span>Md Dilshad Bilal</span></a>
+          </div>
+        </div>
+        <form class="glass-panel form reveal delay-1" id="contactForm">
+          <div class="form-row"><input id="contactName" placeholder="Your name" required><input id="contactSenderEmail" type="email" placeholder="Your email" required></div>
+          <textarea id="contactMessage" placeholder="Tell me about your requirement..." required></textarea>
+          <div class="contact-method">
+            <span>Send via</span>
+            <label><input type="radio" name="contactMethod" value="email" checked> Email</label>
+            <label><input type="radio" name="contactMethod" value="whatsapp"> WhatsApp</label>
+          </div>
+          <button class="btn btn-primary magnetic" type="submit">Send Message <span>↗</span></button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand"><img class="tds-logo-image footer-logo" src="tds-logo.png" alt="TDS Tech Solution logo"><div><strong>TDS Tech Solution</strong><span>PROJECT UNIVERSE • DIGITAL WORKS</span></div></div>
+    <div>© <span id="year"></span> TDS Tech Solution • MD DILSHAD ALAM</div>
+    <a href="#home" class="magnetic back-top">BACK TO TOP ↑</a>
+  </footer>
+
+  <!-- =====================================================
+       PROJECT ADD GUIDE
+       PROJECT ADDING (EASY UPDATE)
+       Project cards are generated from the objects below. To add
+       another project, copy one complete project block/object,
+       paste it below the previous one, then update the details.
+       This is the project-card data equivalent of copying the
+       project div: the design and detail drawer update automatically.
+       ===================================================== -->
+  <script type="application/json" id="projectData">
+  [
+    {
+      "id":"expense-manager","number":"01","category":"android","label":"ANDROID","title":"Expense Manager","symbol":"₹",
+      "description":"Android finance-management application for income, expenses, person records, ledger entries and everyday money tracking.",
+      "tech":["Android","Java","SQLite","Material UI"],
+      "features":["Income & expense tracking","Person / ledger management","Transaction history","Balance calculation","Recycle-bin recovery","Monthly reporting"],
+      "status":"MAJOR PROJECT","cover":"expense-manager-cover.png","demo":"#","report":"reports/expense-manager/index.html"
+    },
+    {
+      "id":"money-handling","number":"02","category":"android","label":"ANDROID","title":"Money Handling App","symbol":"◈",
+      "description":"Android project focused on organized money records, transaction handling and a practical financial workflow.",
+      "tech":["Android","Java","SQLite","UI / UX"],
+      "features":["Money records","Transaction workflow","History view","Data organization","Mobile-first interface","Structured app flow"],
+      "status":"PROJECT","cover":"money-handling-cover.jpeg","demo":"#","report":"reports/money-handling-report.html"
+    },
+    {
+      "id":"tds-classes","number":"03","category":"android","label":"ANDROID","title":"TDS Classes","symbol":"T",
+      "description":"Education-focused Android application for class information, student-oriented flows and organized learning management features.",
+      "tech":["Android","Java","Firebase","Material Design"],
+      "features":["Student management","Class information","OTP login flow","Attendance-oriented workflow","Organized content","Mobile interface"],
+      "status":"PROJECT","cover":"tds-classes-cover.jpeg","demo":"#","report":"reports/tds-classes-report.html"
+    },
+    {
+      "id":"typing-test","number":"04","category":"web","label":"WEB","title":"Typing Test","symbol":"⌨",
+      "description":"Interactive browser typing experience focused on speed, accuracy, timing, progress feedback and responsive interaction.",
+      "tech":["HTML","CSS","JavaScript","Web UI"],
+      "features":["Typing speed test","Accuracy tracking","Instant feedback","Responsive interface","Practice workflow","Browser-based experience"],
+      "status":"PLAYABLE","cover":"","demo":"projects/typing-test/index.html","report":"#"
+    },
+    {
+      "id":"typing-game","number":"05","category":"web","label":"WEB","title":"Typing Game","symbol":"✦",
+      "description":"Browser game project built around keyboard interaction, speed challenge, scoring and replayable gameplay.",
+      "tech":["HTML","CSS","JavaScript","Game Logic"],
+      "features":["Interactive gameplay","Score system","Speed challenge","Keyboard interaction","Responsive design","Replay workflow"],
+      "status":"PLAYABLE","cover":"","demo":"projects/typing-game/index.html","report":"#"
+    },
+    {
+      "id":"iot-wifi-car","number":"06","category":"iot","label":"IoT","title":"IoT WiFi Controlled Car","symbol":"◈",
+      "description":"WiFi-controlled robotic car with directional movement, indicators, horn and browser-based operation using NodeMCU ESP8266.",
+      "tech":["ESP8266","L298N","DC Motors","WiFi","OLED"],
+      "features":["WiFi control","Forward / reverse","Left / right movement","Indicators","Horn","Browser control interface"],
+      "status":"HARDWARE PROJECT","cover":"iot-car.png","demo":"#","report":"reports/iotcar/index.html"
+    },
+    {
+      "id":"iot-smart-parking","number":"07","category":"iot","label":"IoT","title":"IoT Smart Parking","symbol":"P",
+      "description":"Smart parking project using connected sensing and automation concepts to detect and communicate parking availability.",
+      "tech":["Arduino","Ultrasonic Sensor","Servo Motor","IoT","Automation"],
+      "features":["Parking availability","Sensor-based detection","Automatic gate concept","Real-time status","Connected hardware","Automation workflow"],
+      "status":"HARDWARE PROJECT","cover":"","demo":"#","report":"reports/iot-smart-parking/index.html"
+    },
+    {
+      "id":"tds-communicationX","number":"08","category":"ai","label":"AI","title":"TDS CommunicationX AI","symbol":"✧",
+      "description":"Any language learn and practice free of cost",
+      "tech":["AI assist","Generation","Automation","Future Platform"],
+      "features":["easy to learn and practice"],
+      "status":"COMING SOON","cover":"","demo":"#Communicationx","report":"#"
+    }
+    ,
+    {
+      "id":"tds-agentx","number":"09","category":"ai","label":"AI","title":"TDS AgentX AI","symbol":"✧",
+      "description":"In-development all-in-one AI platform planned for image, video, website, Android and other generation workflows.",
+      "tech":["AI","Generation","Automation","Future Platform"],
+      "features":["Image generation","Video generation","Website generation","Android generation","Automation ideas","Future AI tools"],
+      "status":"COMING SOON","cover":"","demo":"#agentx","report":"#"
+    }
+  ]
+  </script>
+
+  <!-- Project detail drawer -->
+  <div class="overlay" id="projectOverlay" aria-hidden="true">
+    <aside class="drawer">
+      <button class="close-drawer magnetic" id="closeDrawer" aria-label="Close">×</button>
+      <div class="drawer-top"><span id="drawerNumber">01</span><span id="drawerCategory">ANDROID</span></div>
+      <div class="drawer-hero"><div><div class="eyebrow"><i></i> PROJECT DETAILS</div><h2 id="drawerTitle">Expense Manager</h2><p id="drawerDescription"></p></div><div class="drawer-symbol" id="drawerSymbol">₹</div></div>
+      <div class="drawer-block"><span class="label">STATUS</span><div class="status-pill" id="drawerStatus">MAJOR PROJECT</div></div>
+      <div class="drawer-block"><span class="label">TECHNOLOGY</span><div class="tech-list" id="drawerTech"></div></div>
+      <div class="drawer-block"><span class="label">FEATURES</span><div class="feature-grid" id="drawerFeatures"></div></div>
+      <div class="drawer-block ai-disclosure"><span>✦ AI-ASSISTED PROJECT</span><p>This project is presented as an AI-assisted build with human direction, testing and refinement by MD DILSHAD ALAM.</p></div>
+      <div class="drawer-actions"><a class="btn btn-primary magnetic" id="drawerDemo" href="#">OPEN DEMO <span>↗</span></a><a class="btn btn-ghost magnetic" id="drawerReport" href="#">VIEW REPORT <span>↗</span></a></div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast"><span>✦</span><b id="toastText">Ready</b></div>
+  <script src="app.js"></script>
+</body>
+</html>
