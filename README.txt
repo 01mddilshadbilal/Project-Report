@@ -1,12 +1,5 @@
-TDS TECH SOLUTION — PORTFOLIO
+Expense Manager Project Report Website
 
-Put your final logo file here:
-assets/tds-logo.png
-
-The website already references this file in the intro, header, home featured card and footer.
-
-Project updates:
-Open index.html and find PROJECT ADDING (EASY UPDATE). Copy one complete project object in the projectData array and update its details.
-
-Contact:
-Email and WhatsApp are already configured. The contact form lets the visitor choose Email or WhatsApp before sending.
+Open index.html in a browser. The site is self-contained and uses local assets from the supplied project screenshots.
+Use Print / Save as PDF to create a PDF copy.
+Developer: MD DILSHAD ALAM (individual project). AI tools are documented as development assistance, not as co-developers.

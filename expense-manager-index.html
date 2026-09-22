@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Expense Manager — Project Report | MD DILSHAD ALAM</title>
+<meta name="description" content="Professional project documentation for Expense Manager, individually designed and developed by MD DILSHAD ALAM with AI assistance.">
+<style>
+:root{--bg:#07110f;--panel:#0d1b18;--panel2:#10231f;--text:#eefaf5;--muted:#9ab4ab;--accent:#61f2b4;--accent2:#33b77f;--line:#1b3b32;--gold:#f6d27b;--shadow:0 20px 70px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% 0%,#12352d 0,transparent 32%),radial-gradient(circle at 100% 20%,#1b332c 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}.container{width:min(1180px,92%);margin:auto}nav{position:sticky;top:0;z-index:20;background:rgba(7,17,15,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.navin{display:flex;align-items:center;justify-content:space-between;padding:13px 0;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800}.brand img{width:38px;height:38px;border-radius:12px;object-fit:cover;box-shadow:0 0 25px rgba(97,242,180,.18)}.navlinks{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--accent)}.hero{padding:85px 0 65px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:center}.kicker{display:inline-flex;padding:7px 11px;border:1px solid #285b4c;border-radius:999px;color:var(--accent);background:rgba(97,242,180,.07);font-size:12px;font-weight:800;letter-spacing:.12em}h1{font-size:clamp(42px,7vw,78px);line-height:1.02;margin:18px 0}.gradient{background:linear-gradient(110deg,#fff,var(--accent),#d2fff0);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:18px;color:var(--muted);max-width:760px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{border:1px solid var(--line);padding:12px 17px;border-radius:13px;background:#0d1c19;color:#fff;font-weight:700;cursor:pointer}.btn.primary{background:var(--accent);color:#052118;border-color:var(--accent)}.hero-card{background:linear-gradient(145deg,rgba(20,53,44,.92),rgba(8,22,18,.95));border:1px solid var(--line);border-radius:28px;padding:25px;box-shadow:var(--shadow)}.hero-card img{width:100%;max-height:290px;object-fit:contain;border-radius:20px;background:#07110f}.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0}.stat{padding:20px;border:1px solid var(--line);background:rgba(13,27,24,.72);border-radius:18px}.stat b{display:block;font-size:28px;color:var(--accent)}.stat span{color:var(--muted);font-size:13px}section{padding:68px 0;border-top:1px solid rgba(27,59,50,.65)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}h2{font-size:36px;line-height:1.1;margin:0 0 8px}.lead{color:var(--muted);max-width:760px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.feature,.info{padding:24px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(16,35,31,.92),rgba(9,22,19,.92))}.feature h3,.info h3{margin-top:0}.feature p,.info p,.info li{color:var(--muted)}.timeline{display:grid;gap:14px}.step{display:grid;grid-template-columns:50px 1fr;gap:15px;align-items:start}.num{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(97,242,180,.1);border:1px solid #2c6a56;color:var(--accent);font-weight:900}.screens-toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}input{flex:1;min-width:220px;padding:13px 15px;border-radius:13px;border:1px solid var(--line);background:#081511;color:#fff;outline:none}.screen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.screen-card{overflow:hidden;border:1px solid var(--line);background:#0a1815;border-radius:20px;transition:.25s;box-shadow:0 10px 30px rgba(0,0,0,.16)}.screen-card:hover{transform:translateY(-4px);border-color:#347b64}.screen-media{background:#020806;padding:12px;height:430px;display:flex;align-items:center;justify-content:center}.screen-media img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}.screen-body{padding:19px}.screen-body h3{margin:4px 0 7px}.screen-body p{color:var(--muted);font-size:14px;min-height:66px}.eyebrow{font-size:10px;letter-spacing:.15em;color:var(--accent);font-weight:900}code{font-size:11px;color:#b7d8cd;background:#07120f;padding:5px 7px;border-radius:7px}.arch{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}.layer{padding:23px;border:1px solid var(--line);border-radius:18px;background:rgba(14,31,27,.8)}.layer strong{color:var(--accent)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow span{padding:10px 13px;border:1px solid var(--line);background:#0d1e19;border-radius:12px}.flow i{color:var(--gold)}details{border:1px solid var(--line);border-radius:16px;background:#0b1916;margin:10px 0;overflow:hidden}summary{cursor:pointer;padding:15px 18px;font-weight:750}pre{margin:0;padding:18px;overflow:auto;background:#050c0a;color:#ccefe2;font-size:12px;line-height:1.5;border-top:1px solid var(--line)}.ai-note{border:1px solid #426e5e;background:linear-gradient(135deg,rgba(97,242,180,.10),rgba(246,210,123,.06));padding:25px;border-radius:22px}.footer{padding:45px 0;color:var(--muted);border-top:1px solid var(--line)}.footer strong{color:#fff}.print-only{display:none}@media(max-width:900px){.hero-grid,.grid2{grid-template-columns:1fr}.screen-grid{grid-template-columns:repeat(2,1fr)}.statgrid{grid-template-columns:repeat(2,1fr)}.arch{grid-template-columns:1fr}.navlinks{display:none}}@media(max-width:600px){.hero{padding-top:55px}.screen-grid{grid-template-columns:1fr}.screen-media{height:500px}h2{font-size:30px}}
+@media print{nav,.hero-actions,.screens-toolbar{display:none!important}body{background:white;color:#111}section,.hero{break-inside:avoid}.hero-card,.feature,.info,.screen-card,.layer,.ai-note{box-shadow:none;border:1px solid #ccc;background:white;color:#111}.screen-grid{grid-template-columns:repeat(2,1fr)}.screen-media{height:360px;background:#f7f7f7}.lead,.feature p,.info p,.info li,.screen-body p,.footer{color:#444}.gradient{color:#111;background:none}.print-only{display:block}}
+</style></head>
+<body>
+<nav><div class="container navin"><a class="brand" href="#top"><img src="expense-manager-logo.png" onerror="this.src='expense-manager-app-icon.webp'" alt="Expense Manager logo"><span>Expense Manager</span></a><div class="navlinks"><a href="#overview">Overview</a><a href="#features">Features</a><a href="#architecture">Architecture</a><a href="#screens">Screens</a><a href="#implementation">Implementation</a><a href="#ai">AI & Authorship</a></div></div></nav>
+<main id="top"><header class="hero"><div class="container hero-grid"><div><span class="kicker">ANDROID PROJECT • VERSION 1.0</span><h1><span class="gradient">Expense Manager</span><br>Project Report</h1><p>A complete personal-finance Android application designed and developed individually by <strong>MD DILSHAD ALAM</strong>, with AI assistance used as a development support tool.</p><div class="hero-actions"><button class="btn primary" onclick="window.print()">Print / Save as PDF</button><a class="btn" href="#screens">Explore UI Screens</a></div></div><div class="hero-card"><img src="expense-manager-dilshad.png" alt="Expense Manager Dashboard"><p style="margin:14px 0 0;color:var(--muted)"><strong style="color:#fff">Developer:</strong> MD DILSHAD ALAM<br><strong style="color:#fff">Project type:</strong> Individual Android Application</p></div></div></header>
+<section id="overview"><div class="container"><div class="section-head"><div><h2>Project Overview</h2><p class="lead">Expense Manager is designed to help users record, organize and understand personal financial activity from a single Android application.</p></div></div><div class="statgrid"><div class="stat"><b>35+</b><span>XML layouts in project</span></div><div class="stat"><b>21</b><span>Supplied UI screenshots</span></div><div class="stat"><b>36</b><span>Compile / target SDK</span></div><div class="stat"><b>1</b><span>Individual developer</span></div></div><div class="grid2"><article class="info"><h3>Problem Statement</h3><p>Personal financial records can become scattered across notes, messages and memory. The project addresses this by bringing transactions, balances, reports, calendar views and personal ledgers into one mobile interface.</p></article><article class="info"><h3>Project Objective</h3><p>To build a practical, visually organized Android solution for recording income and expenses, reviewing financial history, handling person-wise Udhar records, and protecting private financial information.</p></article></div></div></section>
+<section id="features"><div class="container"><div class="section-head"><div><h2>Core Features</h2><p class="lead">The feature set below is based on the supplied Android project structure, activities, layouts and implementation classes.</p></div></div><div class="grid2"><article class="feature"><h3>💰 Transactions & Balance</h3><p>Add income and expense transactions, maintain stored records, calculate balance, and distinguish cash and online amounts.</p></article><article class="feature"><h3>📊 Financial Analysis</h3><p>Monthly report and transaction history screens provide structured views for reviewing financial activity.</p></article><article class="feature"><h3>📅 Calendar View</h3><p>Calendar-based navigation helps users associate financial activity with dates.</p></article><article class="feature"><h3>🤝 Personal Ledger / Udhar</h3><p>Person-wise ledger records support amounts given and received, descriptions, history and balance status.</p></article><article class="feature"><h3>🔐 Security</h3><p>Authentication flows, app lock and biometric-related dependencies are included in the project.</p></article><article class="feature"><h3>🎨 Themes & Settings</h3><p>Theme management and settings screens provide personalization and configuration controls.</p></article><article class="feature"><h3>🗑️ Recycle Bin</h3><p>Deleted transaction data is handled through a dedicated recycle-bin module rather than immediately disappearing from the interface.</p></article><article class="feature"><h3>🔔 Reminders</h3><p>The project includes reminder scheduling and a reminder receiver for notification-related functionality.</p></article></div></div></section>
+<section id="architecture"><div class="container"><h2>System Architecture</h2><p class="lead">The implementation uses a traditional Android activity-based UI with local data management, Firebase services for authentication/cloud-related functionality, and supporting utility/security classes.</p><div class="arch" style="margin-top:25px"><div class="layer"><strong>Presentation Layer</strong><p>Activities + XML layouts + ViewBinding + RecyclerView adapters</p></div><div class="layer"><strong>Application Logic</strong><p>Transaction, report, theme, reminder, authentication and ledger activities/classes</p></div><div class="layer"><strong>Data Layer</strong><p>SQLite via <code>DatabaseHelper</code>, SharedPreferences and Firebase services</p></div></div><h3 style="margin-top:35px">Application Flow</h3><div class="flow"><span>Splash</span><i>→</i><span>Authentication / Lock</span><i>→</i><span>Dashboard</span><i>→</i><span>Transactions</span><i>→</i><span>Reports / Calendar</span><i>→</i><span>Ledger / Settings</span></div><h3 style="margin-top:35px">Technology Stack</h3><ul class="lead"><li>Android / Java</li><li>XML-based UI with ViewBinding</li><li>SQLite database through SQLiteOpenHelper</li><li>Firebase Authentication and Firestore dependencies</li><li>AndroidX Material, RecyclerView, ConstraintLayout and Biometric APIs</li><li>Compile SDK 36, minimum SDK 21, Java 11 compatibility</li></ul></div></section>
+<section id="screens"><div class="container"><div class="section-head"><div><h2>Complete UI Documentation</h2><p class="lead">All supplied app screenshots are presented below. Use the search box to quickly locate a screen.</p></div></div><div class="screens-toolbar"><input id="screenSearch" placeholder="Search screens, XML names, or features…"><button class="btn" onclick="document.getElementById('screenSearch').value='';filterScreens()">Clear</button></div><div class="screen-grid"><article class="screen-card" data-search="Add Transaction activity_add_transaction.xml.jpg Records income or expense entries with transaction details."><div class="screen-media"><img src="expense-manager-activity_add_transaction.xml.jpg" alt="Add Transaction" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Add Transaction</h3><p>Records income or expense entries with transaction details.</p><code>activity_add_transaction.xml</code></div></article><article class="screen-card" data-search="Add Udhar activity_add_udhar.xml.jpg Adds money given/received in the personal Udhar ledger."><div class="screen-media"><img src="expense-manager-activity_add_udhar.xml.jpg" alt="Add Udhar" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Add Udhar</h3><p>Adds money given/received in the personal Udhar ledger.</p><code>activity_add_udhar.xml</code></div></article><article class="screen-card" data-search="App Creator / About activity_app_creator.xml.jpg Contains the project creator/app information screen."><div class="screen-media"><img src="expense-manager-activity_app_creator.xml.jpg" alt="App Creator / About" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>App Creator / About</h3><p>Contains the project creator/app information screen.</p><code>activity_app_creator.xml</code></div></article><article class="screen-card" data-search="Calendar activity_calendar.xml.jpg Organizes and views finance-related entries by date."><div class="screen-media"><img src="expense-manager-activity_calendar.xml.jpg" alt="Calendar" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Calendar</h3><p>Organizes and views finance-related entries by date.</p><code>activity_calendar.xml</code></div></article><article class="screen-card" data-search="Email Login activity_email_login.xml.jpg Provides account authentication using an email-based sign-in flow."><div class="screen-media"><img src="expense-manager-activity_email_login.xml.jpg" alt="Email Login" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Email Login</h3><p>Provides account authentication using an email-based sign-in flow.</p><code>activity_email_login.xml</code></div></article><article class="screen-card" data-search="App Lock activity_lock.xml.jpg Protects the application with a local lock mechanism."><div class="screen-media"><img src="expense-manager-activity_lock.xml.jpg" alt="App Lock" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>App Lock</h3><p>Protects the application with a local lock mechanism.</p><code>activity_lock.xml</code></div></article><article class="screen-card" data-search="Dashboard / Home activity_main.xml.jpg Central dashboard showing balance, cash/online amounts, income, expenses and Udhar summaries."><div class="screen-media"><img src="expense-manager-activity_main.xml.jpg" alt="Dashboard / Home" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Dashboard / Home</h3><p>Central dashboard showing balance, cash/online amounts, income, expenses and Udhar summaries.</p><code>activity_main.xml</code></div></article><article class="screen-card" data-search="Monthly Report activity_monthly_report.xml.jpg Presents monthly financial information for analysis and review."><div class="screen-media"><img src="expense-manager-activity_monthly_report.xml.jpg" alt="Monthly Report" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Monthly Report</h3><p>Presents monthly financial information for analysis and review.</p><code>activity_monthly_report.xml</code></div></article><article class="screen-card" data-search="Personal Ledger activity_personal_ledger.xml.jpg Tracks person-wise ledger balances and entries."><div class="screen-media"><img src="expense-manager-activity_personal_ledger.xml.jpg" alt="Personal Ledger" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Personal Ledger</h3><p>Tracks person-wise ledger balances and entries.</p><code>activity_personal_ledger.xml</code></div></article><article class="screen-card" data-search="Phone Login activity_phone_login.xml.jpg Provides an alternate phone-based authentication flow."><div class="screen-media"><img src="expense-manager-activity_phone_login.xml.jpg" alt="Phone Login" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Phone Login</h3><p>Provides an alternate phone-based authentication flow.</p><code>activity_phone_login.xml</code></div></article><article class="screen-card" data-search="Profile activity_profile.xml.jpg Displays and manages the user profile information."><div class="screen-media"><img src="expense-manager-activity_profile.xml.jpg" alt="Profile" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Profile</h3><p>Displays and manages the user profile information.</p><code>activity_profile.xml</code></div></article><article class="screen-card" data-search="Recycle Bin activity_recycle_bin.xml.jpg Keeps deleted transaction data available for recovery/management."><div class="screen-media"><img src="expense-manager-activity_recycle_bin.xml.jpg" alt="Recycle Bin" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Recycle Bin</h3><p>Keeps deleted transaction data available for recovery/management.</p><code>activity_recycle_bin.xml</code></div></article><article class="screen-card" data-search="Settings activity_settings.xml.jpg Provides application preferences and configuration options."><div class="screen-media"><img src="expense-manager-activity_settings.xml.jpg" alt="Settings" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Settings</h3><p>Provides application preferences and configuration options.</p><code>activity_settings.xml</code></div></article><article class="screen-card" data-search="Sign Up activity_signup.xml.jpg Creates a new user account and starts the onboarding process."><div class="screen-media"><img src="expense-manager-activity_signup.xml.jpg" alt="Sign Up" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Sign Up</h3><p>Creates a new user account and starts the onboarding process.</p><code>activity_signup.xml</code></div></article><article class="screen-card" data-search="Splash Screen activity_splash.xml.jpg Introduces the application with its branded launch experience."><div class="screen-media"><img src="expense-manager-activity_splash.xml.jpg" alt="Splash Screen" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Splash Screen</h3><p>Introduces the application with its branded launch experience.</p><code>activity_splash.xml</code></div></article><article class="screen-card" data-search="Themes activity_themes.xml.jpg Allows the user to manage the visual theme of the application."><div class="screen-media"><img src="expense-manager-activity_themes.xml.jpg" alt="Themes" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Themes</h3><p>Allows the user to manage the visual theme of the application.</p><code>activity_themes.xml</code></div></article><article class="screen-card" data-search="Transactions activity_transactions.xml.jpg Displays stored transaction history for review and management."><div class="screen-media"><img src="expense-manager-activity_transactions.xml.jpg" alt="Transactions" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Transactions</h3><p>Displays stored transaction history for review and management.</p><code>activity_transactions.xml</code></div></article><article class="screen-card" data-search="Udhar History activity_udhar_history.xml.jpg Shows historical Udhar entries and related records."><div class="screen-media"><img src="expense-manager-activity_udhar_history.xml.jpg" alt="Udhar History" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Udhar History</h3><p>Shows historical Udhar entries and related records.</p><code>activity_udhar_history.xml</code></div></article><article class="screen-card" data-search="Profile Menu profile_menu_layout.jpg Quick profile actions exposed from the dashboard."><div class="screen-media"><img src="expense-manager-profile_menu_layout.jpg" alt="Profile Menu" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Profile Menu</h3><p>Quick profile actions exposed from the dashboard.</p><code>profile_menu_layout</code></div></article><article class="screen-card" data-search="Forgot App Lock activity_forgot_lock.xml.png Provides a recovery flow for the application lock."><div class="screen-media"><img src="expense-manager-activity_forgot_lock.xml.png" alt="Forgot App Lock" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Forgot App Lock</h3><p>Provides a recovery flow for the application lock.</p><code>activity_forgot_lock.xml</code></div></article><article class="screen-card" data-search="Forgot Password activity_forgot_password.xml.png Supports password recovery for account access."><div class="screen-media"><img src="expense-manager-activity_forgot_password.xml.png" alt="Forgot Password" loading="lazy"></div><div class="screen-body"><span class="eyebrow">UI SCREEN</span><h3>Forgot Password</h3><p>Supports password recovery for account access.</p><code>activity_forgot_password.xml</code></div></article></div></div></section>
+<section id="implementation"><div class="container"><h2>Implementation Highlights</h2><p class="lead">Selected source excerpts are included to document the real implementation approach. The complete source remains in the supplied Android Studio project.</p><div style="margin-top:22px"><details class="code-card"><summary>MainActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
+import com.example.expensemate.auth.EmailLoginActivity;
+import com.example.expensemate.udhar.AddUdharActivity;
+import com.example.expensemate.udhar.UdharHistoryActivity;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class MainActivity extends AppCompatActivity {
+
+    private TextView balanceText, homeUserName;
+    private TextView cashBalanceText, onlineBalanceText;
+    private TextView udharLiyaText, udharDiyaText;
+    private ImageView homeProfileImage;
+    private Button incomeBtn, expenseBtn, addUdharBtn, udharHistoryBtn;
+    private GestureDetector gestureDetector;
+    private DatabaseHelper dbHelper;
+
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private Handler mainHandler = new Handler(Looper.getMainLooper());
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        applySavedTheme();
+        setContentView(R.layout.activity_main);
+
+        initializeViews();
+        setupGestureDetector();
+        setupClickListeners();
+
+        // Show loading state
+        showLoadingState();
+
+        // Load data in background
+        loadDataInBackground();
+    }
+
+    private void applySavedTheme() {
+        int savedTheme = ThemeUtils.getCurrentTheme(this);
+        if (savedTheme == ThemeUtils.THEME_DARK) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+</code></pre></details><details class="code-card"><summary>DatabaseHelper.java</summary><pre><code>package com.example.expensemate;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import androidx.annotation.Nullable;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = &quot;ExpenseManager.db&quot;;
+    private static final int DATABASE_VERSION = 9;
+
+    // Table Names
+    private static final String TABLE_TRANSACTIONS = &quot;transactions&quot;;
+    private static final String TABLE_PERSONS = &quot;persons&quot;;
+    private static final String TABLE_LEDGER = &quot;ledger&quot;;
+    private static final String TABLE_MARKS = &quot;marks&quot;;
+    private static final String TABLE_DELETED_TRANSACTIONS = &quot;deleted_transactions&quot;;
+
+    // Common Columns
+    private static final String COL_ID = &quot;id&quot;;
+
+    // Transactions Table Columns
+    private static final String COL_TYPE = &quot;type&quot;;
+    private static final String COL_AMOUNT = &quot;amount&quot;;
+    private static final String COL_DESCRIPTION = &quot;description&quot;;
+    private static final String COL_CATEGORY = &quot;category&quot;;
+    private static final String COL_DATE = &quot;date&quot;;
+    private static final String COL_PAYMENT_MODE = &quot;payment_mode&quot;;
+
+    // Transaction Update History
+    private static final String TABLE_TRANSACTION_UPDATES = &quot;transaction_updates&quot;;
+    // Personal Ledger Update History
+    private static final String TABLE_LEDGER_UPDATES = &quot;ledger_updates&quot;;
+    private static final String COL_UPDATE_ID = &quot;update_id&quot;;
+    private static final String COL_TRANSACTION_ID = &quot;transaction_id&quot;;
+    private static final String COL_OLD_TYPE = &quot;old_type&quot;;
+    private static final String COL_OLD_AMOUNT = &quot;old_amount&quot;;
+    private static final String COL_OLD_DESCRIPTION = &quot;old_description&quot;;
+    private static final String COL_OLD_CATEGORY = &quot;old_category&quot;;
+    private static final String COL_OLD_DATE = &quot;old_date&quot;;
+    private static final String COL_NEW_TYPE = &quot;new_type&quot;;
+    private static final String COL_NEW_AMOUNT = &quot;new_amount&quot;;
+    private static final String COL_NEW_DESCRIPTION = &quot;new_description&quot;;
+    private static final String COL_NEW_CATEGORY = &quot;new_category&quot;;
+    private static final String COL_NEW_DATE = &quot;new_date&quot;;
+    private static final String COL_UPDATED_AT = &quot;updated_at&quot;;
+
+    // Persons Table Columns
+    private static final String COL_NAME = &quot;name&quot;;
+    private static final String COL_PHONE = &quot;phone&quot;;
+
+    // Ledger Table Columns
+    private static final String COL_PERSON_ID = &quot;personId&quot;;
+    private static final String COL_LEDGER_TYPE = &quot;type&quot;; // &quot;+&quot; for Diya, &quot;-&quot; for Liya
+    private static final String COL_LEDGER_DESC = &quot;description&quot;; // new column
+
+    // Marks Table Columns
+    private static final String COL_MARK_TITLE = &quot;title&quot;;
+    private static final String COL_MARK_AMOUNT = &quot;amount&quot;;</code></pre></details><details class="code-card"><summary>AddTransactionActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.expensemate.udhar.AddUdharActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class AddTransactionActivity
+        extends AppCompatActivity {
+
+    private EditText amountInput;
+    private EditText descriptionInput;
+
+    private Spinner categorySpinner;
+
+    private Button saveBtn;
+    private Button udharBtn;
+
+    private Button cashBtn;
+    private Button onlineBtn;
+
+    private DatabaseHelper dbHelper;
+
+    private String transactionType;
+
+    private int editId = -1;
+
+    private String paymentMode =
+            &quot;Cash&quot;;
+
+    @Override
+    protected void onCreate(
+            Bundle savedInstanceState
+    ) {
+
+        super.onCreate(
+                savedInstanceState
+        );
+
+        setContentView(
+                R.layout.activity_add_transaction
+        );
+
+        transactionType =
+                getIntent().getStringExtra(
+                        &quot;TRANSACTION_TYPE&quot;
+                );
+
+        dbHelper =
+                new DatabaseHelper(this);
+
+        amountInput =
+                findViewById(
+                        R.id.amountInput
+                );
+
+        descriptionInput =</code></pre></details><details class="code-card"><summary>MonthlyReportActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.os.Bundle;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import java.util.Locale;
+
+public class MonthlyReportActivity extends AppCompatActivity {
+
+    private TextView monthIncome, monthExpense, monthBalance;
+    private DatabaseHelper dbHelper;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_monthly_report);
+
+        monthIncome  = findViewById(R.id.monthIncome);
+        monthExpense = findViewById(R.id.monthExpense);
+        monthBalance = findViewById(R.id.monthBalance);
+
+        dbHelper = new DatabaseHelper(this);
+
+        loadReport();
+    }
+
+    private void loadReport() {
+        double income  = dbHelper.getTotalIncome();
+        double expense = dbHelper.getTotalExpense();
+        double balance = income - expense;
+
+        monthIncome.setText(String.format(Locale.getDefault(),  &quot;₹%.2f&quot;, income));
+        monthExpense.setText(String.format(Locale.getDefault(), &quot;₹%.2f&quot;, expense));
+        monthBalance.setText(String.format(Locale.getDefault(), &quot;₹%.2f&quot;, balance));
+    }
+}</code></pre></details><details class="code-card"><summary>SettingsActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.InputType;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.biometric.BiometricManager;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+
+import com.example.expensemate.security.LockManager;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+public class SettingsActivity
+        extends AppCompatActivity {
+
+    private DatabaseHelper dbHelper;
+
+    private LockManager lockManager;
+
+    private SharedPreferences securityPrefs;
+
+    private SwitchCompat appLockSwitch;
+    private SwitchCompat biometricSwitch;
+    private SwitchCompat privacyModeSwitch;
+
+    private Button changePinBtn;
+    private Button autoLockBtn;
+
+    private ActivityResultLauncher&lt;String&gt;
+            exportLauncher;
+
+    private ActivityResultLauncher&lt;String[]&gt;
+            importLauncher;
+
+    @Override
+    protected void onCreate(
+            Bundle savedInstanceState
+    ) {
+
+        super.onCreate(
+                savedInstanceState
+        );
+
+        dbHelper =
+                new DatabaseHelper(this);
+
+        lockManager =</code></pre></details><details class="code-card"><summary>CalendarActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+public class CalendarActivity extends AppCompatActivity {
+
+    private TextView monthYearText;
+    private GridLayout calendarGrid;
+    private DatabaseHelper dbHelper;
+    private GestureDetector gestureDetector;
+    private Calendar currentCalendar;
+
+    // date → [income, expense]
+    private final Map&lt;String, double[]&gt; transactionMap = new HashMap&lt;&gt;();
+    // date → markType (&quot;lena&quot; / &quot;dena&quot; / &quot;both&quot;)
+    private final Map&lt;String, String&gt; markMap = new HashMap&lt;&gt;();
+
+    private static final String[] DAY_NAMES = {&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_calendar);
+
+        dbHelper = new DatabaseHelper(this);
+        currentCalendar = Calendar.getInstance();
+
+        monthYearText = findViewById(R.id.monthYearText);
+        calendarGrid = findViewById(R.id.calendarGrid);
+
+        // Header buttons
+        ImageButton backBtn = findViewById(R.id.backBtnCalendar);
+        backBtn.setOnClickListener(v -&gt; finish());
+
+        Button reportBtn = findViewById(R.id.reportBtnCal);
+        if (reportBtn != null) reportBtn.setOnClickListener(v -&gt;
+                startActivity(new Intent(this, MonthlyReportActivity.class)));
+
+        // Month navigation
+        findViewById(R.id.prevMonthBtn).setOnClickListener(v -&gt; {
+            currentCalendar.add(Calendar.MONTH, -1);</code></pre></details><details class="code-card"><summary>RecycleBinActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.database.Cursor;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecycleBinActivity extends AppCompatActivity {
+
+    private ListView listView;
+    private DatabaseHelper dbHelper;
+    private DeletedTransactionAdapter adapter;
+
+    private EditText searchBox;
+    private Spinner filterSpinner;
+
+    private Button tabTransaction;
+    private Button tabUdhar;
+    private Button btnDeleteAll;
+
+    private LinearLayout transactionFilterLayout;
+    private LinearLayout udharFilterLayout;
+
+    private List&lt;DeletedTransaction&gt; allDeletedList = new ArrayList&lt;&gt;();
+
+    private boolean udharTabSelected = false;
+
+    private String currentSearch = &quot;&quot;;
+    private String currentFilter = &quot;All&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_recycle_bin);
+
+        dbHelper = new DatabaseHelper(this);
+
+        listView = findViewById(R.id.listDeleted);
+
+        searchBox = findViewById(R.id.searchBox);
+
+        filterSpinner = findViewById(R.id.filterSpinner);
+
+        tabTransaction = findViewById(R.id.tabTransaction);
+        tabUdhar = findViewById(R.id.tabUdhar);
+
+        btnDeleteAll = findViewById(R.id.btnDeleteAll);
+
+        transactionFilterLayout =
+                findViewById(R.id.transactionFilterLayout);
+
+        udharFilterLayout =
+                findViewById(R.id.udharFilterLayout);
+
+        setupFilters();
+</code></pre></details><details class="code-card"><summary>ThemesActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
+public class ThemesActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_themes);
+
+        initializeViews();
+    }
+
+    private void initializeViews() {
+        Button lightThemeBtn = findViewById(R.id.lightThemeBtn);
+        Button darkThemeBtn = findViewById(R.id.darkThemeBtn);
+        Button sunriseThemeBtn = findViewById(R.id.sunriseThemeBtn);
+        Button oceanThemeBtn = findViewById(R.id.oceanThemeBtn);
+        Button sunsetThemeBtn = findViewById(R.id.sunsetThemeBtn);
+        Button customThemeBtn = findViewById(R.id.customThemeBtn);
+
+        lightThemeBtn.setOnClickListener(v -&gt; applyLightTheme());
+        darkThemeBtn.setOnClickListener(v -&gt; applyDarkTheme());
+        sunriseThemeBtn.setOnClickListener(v -&gt; showComingSoon(&quot;Sunrise Gradient&quot;));
+        oceanThemeBtn.setOnClickListener(v -&gt; showComingSoon(&quot;Ocean Gradient&quot;));
+        sunsetThemeBtn.setOnClickListener(v -&gt; showComingSoon(&quot;Sunset Gradient&quot;));
+        customThemeBtn.setOnClickListener(v -&gt; showCustomThemeDialog());
+    }
+
+    private void applyLightTheme() {
+        ThemeUtils.saveTheme(this, ThemeUtils.THEME_LIGHT);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        Toast.makeText(this, &quot;Light theme applied!&quot;, Toast.LENGTH_SHORT).show();
+        restartApp();
+    }
+
+    private void applyDarkTheme() {
+        ThemeUtils.saveTheme(this, ThemeUtils.THEME_DARK);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        Toast.makeText(this, &quot;Dark theme applied!&quot;, Toast.LENGTH_SHORT).show();
+        restartApp();
+    }
+
+    private void restartApp() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
+    private void showComingSoon(String featureName) {
+        Toast.makeText(this, featureName + &quot; coming soon!&quot;, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showCustomThemeDialog() {
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
+        builder.setTitle(&quot;Custom Theme Creator&quot;)
+                .setMessage(&quot;Custom theme creator will be available in next update!&quot;)
+                .setPositiveButton(&quot;OK&quot;, null)
+                .show();
+    }
+
+    @Override
+    public void onBackPressed() {</code></pre></details><details class="code-card"><summary>AppCreatorActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.os.Bundle;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class AppCreatorActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_app_creator);
+
+        displayDeveloperInfo();
+    }
+
+    private void displayDeveloperInfo() {
+        TextView developerInfo = findViewById(R.id.developerInfo);
+
+        String info = &quot;🛠️ Developed By: MD DILSHAD BILAL\n&quot; +
+                &quot;     \uD83D\uDC6C Best friend: MD ASIF ALAM\n&quot; +
+                &quot;📱 Contact: +91 76544 06857\n&quot; +
+                &quot;📧 Email: mddilshadbilal@gmail.com\n&quot; +
+                &quot;📷 Instagram: @mddilshadbilal786\n&quot; +
+                &quot;💼 Professional: TDS – Tech Developer\n\n&quot; +
+                &quot;🎓 Education:\n&quot; +
+                &quot;   • 12th (Science)\n&quot; +
+                &quot;   • Diploma in Computer Science &amp; Engineering\n\n&quot; +
+                &quot;🌟 Professional Skills:\n&quot; +
+                &quot;• Android Development (Java/Kotlin)\n&quot; +
+                &quot;• Python Programming\n&quot; +
+                &quot;• Java Programming\n&quot; +
+                &quot;• HTML &amp; CSS\n&quot; +
+                &quot;• AI &amp; Machine Learning (Basics)\n&quot; +
+                &quot;• Database Management (SQLite, Firebase)\n&quot; +
+                &quot;• UI/UX Design (Figma, Material Design)\n&quot; +
+                &quot;💻 Additional Skills:\n&quot; +
+                &quot;• ADCA Certified\n&quot; +
+                &quot;• MS Office (Word, Excel, PowerPoint)\n&quot; +
+                &quot;• Computer Fundamentals\n&quot; +
+                &quot;🔧 Technologies Used in This App:\n&quot; +
+                &quot;• Java • XML • SQLite • Firebase\n&quot; +
+                &quot;• Material Design • Gradients\n&quot; +
+                &quot;• Android Studio\n\n&quot; +
+                &quot;📍 Location: Patna, INDIA\n&quot; +
+                &quot;❤️ Thank you for using Expense Manager!&quot;;
+
+        developerInfo.setText(info);
+    }
+}</code></pre></details><details class="code-card"><summary>TransactionDetailsActivity.java</summary><pre><code>package com.example.expensemate;
+
+import android.database.Cursor;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class TransactionDetailsActivity
+        extends AppCompatActivity {
+
+    private DatabaseHelper dbHelper;
+
+    private LinearLayout historyContainer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(
+                R.layout.activity_transaction_details
+        );
+
+        dbHelper =
+                new DatabaseHelper(this);
+
+        historyContainer =
+                findViewById(
+                        R.id.updateHistoryContainer
+                );
+
+        int transactionId =
+                getIntent().getIntExtra(
+                        &quot;transaction_id&quot;,
+                        -1
+                );
+
+        if (transactionId != -1) {
+
+            loadHistory(transactionId);
+        }
+    }
+
+    private void loadHistory(int transactionId) {
+
+        Cursor cursor =
+                dbHelper.getTransactionUpdateHistory(
+                        transactionId
+                );
+
+        if (cursor == null) {
+            return;
+        }
+
+        while (cursor.moveToNext()) {
+
+            String oldType =
+                    cursor.getString(
+                            cursor.getColumnIndexOrThrow(
+                                    &quot;old_type&quot;
+                            )
+                    );
+
+            double oldAmount =
+                    cursor.getDouble(
+                            cursor.getColumnIndexOrThrow(
+                                    &quot;old_amount&quot;
+                            )</code></pre></details></div></div></section>
+<section id="testing"><div class="container"><h2>Testing & Verification Approach</h2><div class="timeline" style="margin-top:24px"><div class="step"><div class="num">01</div><div><h3>UI Verification</h3><p class="lead">Each supplied screenshot is mapped to its corresponding screen/layout naming convention for documentation.</p></div></div><div class="step"><div class="num">02</div><div><h3>Functional Modules</h3><p class="lead">Transaction, ledger, reports, settings, authentication, lock and recycle-bin modules are represented in the project source.</p></div></div><div class="step"><div class="num">03</div><div><h3>Data Handling</h3><p class="lead">DatabaseHelper provides SQLite-backed storage and calculations used by the application screens.</p></div></div><div class="step"><div class="num">04</div><div><h3>Security Review</h3><p class="lead">The project contains app-lock and biometric-related implementation/dependencies. Security-sensitive credentials should be reviewed before any production deployment.</p></div></div></div></div></section>
+<section id="ai"><div class="container"><h2>Development & AI Assistance</h2><div class="ai-note" style="margin-top:22px"><h3>Individual Development Statement</h3><p>This project was <strong>individually designed and developed by MD DILSHAD ALAM</strong>. No team or co-developer was involved in the project.</p><p>AI tools were used as a <strong>development assistance resource</strong> during the project—for example, for problem-solving, code guidance, debugging support, idea refinement and documentation assistance. The application design decisions, project integration, testing, customization and final development work were carried out by <strong>MD DILSHAD ALAM</strong>.</p><p style="color:var(--gold)"><strong>Important:</strong> AI assistance is documented as a tool used during development, not as a project team member or co-developer.</p></div></div></section>
+<section><div class="container"><div class="grid2"><article class="info"><h3>Conclusion</h3><p>Expense Manager brings essential personal-finance workflows into a single Android application. Its modules cover transaction entry, history, reporting, calendar navigation, person-wise ledger management, settings, themes, reminders and app protection.</p></article><article class="info"><h3>Future Scope</h3><ul><li>Enhanced analytics and visual charts</li><li>More export and backup formats</li><li>Expanded notification/reminder controls</li><li>Improved cloud synchronization and multi-device workflows</li><li>Further UI accessibility and performance refinement</li></ul></article></div></div></section></main>
+<footer class="footer"><div class="container"><strong>Expense Manager — Project Documentation</strong><br>Developed by <strong>MD DILSHAD ALAM</strong> • Individual Project • AI-assisted development<br><span>Prepared from the supplied Android Studio project and UI screenshots.</span></div></footer>
+<script>function filterScreens(){const q=document.getElementById('screenSearch').value.toLowerCase();document.querySelectorAll('.screen-card').forEach(c=>c.style.display=c.dataset.search.toLowerCase().includes(q)?'block':'none')}document.getElementById('screenSearch').addEventListener('input',filterScreens);</script>
+</body></html>
