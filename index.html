@@ -1,1471 +1,326 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Manager - Minor Project Report</title>
-    <style>
-       /* A4 Page Size Setup */
-        @page {
-            size: A4;
-            margin: 0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f0f0;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        /* Page Container for A4 Size */
-          .pages {
-            padding: 20mm;
-            margin-bottom: 10mm;
-            width: 210mm;
-            height: 297mm;
-            background: white;
-            margin: 0mm auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            page-break-after: always;
-        }       
-        /* Page Content Area */
-        .page-content {
-            padding: 25mm;
-            height: 100%;
-            position: relative;
-        }
-        .center {
-            text-align: center;
-        }
-        
-      
-        
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #000;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-        }
-        .header h1 {
-            font-size: 16pt;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-        .college-info {
-            text-align: center;
-            margin: 0;
-            font-size: 12pt;
-        }
-        .section {
-            margin: 20px 0;
-            page-break-inside: avoid;
-        }
-        .section h3 {
-            border-bottom: 1px solid #000;
-            padding-bottom: 6px;
-            margin-bottom: 12px;
-            font-size: 13pt;
-        }
-        .student-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        .student-table th, .student-table td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: left;
-        }
-        .student-table th {
-            background: #f0f0f0;
-        }
-        .abstract-box {
-            border: 1px solid #000;
-            padding: 15px;
-            margin: 15px 0;
-            background: #f9f9f9;
-            font-size: 11pt;
-        }
-        .screenshot {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .screenshot img {
-            max-width: 80%;
-            border: 1px solid #000;
-        }
-        .caption {
-            font-size: 10pt;
-            font-style: italic;
-            margin-top: 5px;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 15px 0;
-        }
-        .feature-item {
-            background: #f5f5f5;
-            padding: 10px;
-            border-left: 3px solid #000;
-            font-size: 10pt;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #000;
-            font-size: 10pt;
-        }
-        .page-number {
-            position: absolute;
-            bottom: 15mm;
-            right: 25mm;
-            font-size: 10pt;
-        }
-        ul, ol {
-            margin-left: 25px;
-            margin-bottom: 10px;
-            font-size: 11pt;
-        }
-        li {
-            margin-bottom: 5px;
-        }
-        p {
-            margin-bottom: 10px;
-            font-size: 11pt;
-            text-align: justify;
-        }
-        .signature-table {
-            width: 100%;
-            margin: 30px 0;
-        }
-        .signature-table td {
-            padding: 20px 0;
-            text-align: center;
-            border-top: 1px solid #000;
-        }
-        .architecture {
-            background: #f5f5f5;
-            padding: 15px;
-            border-radius: 6px;
-            font-family: 'Courier New', monospace;
-            font-size: 9pt;
-            white-space: pre-wrap;
-            margin: 12px 0;
-            line-height: 1.4;
-        }
-        /* extra add css */
-        .logo-large {
-            width: 1.8104166666666666in;
-            height: 1.4590277777777778in;
-        }
-        .spaceree {
-            height: 20px;
-        }
-        .project-titleee {
-            font-size: 18pt;
-            line-height: 1.5;
-            margin: 20px 0;
-        }
-        .underlineee {
-            text-decoration: underline;
-        }
-        p{
-            text-align: center;
-        }
-        .signature-line {
-            border-bottom: 1px solid #000;
-            width: 200px;
-            display: inline-block;
-            margin: 0 10px;
-        }
-        
-    </style>
-</head>
-<body>
-    <!-- Page 1: Cover Page -->
-    <div class="pages" style="padding-top: 10px;">
-        <div class="college-info">
-            <h2>MOLANA AZAD COLLEGE OF ENGINNERING ee& TECHNOLOGY</h2>
-            <h3>Department of Computer Science & Engineering</h3>
-            <div style="display: flex;">
-                <div style="margin-top: 10mm;">
-                    <img src="money-handling-assets-image1.png" alt="College Logo" class="logo logo-large">
-                </div>
-                <div style="margin-top: 30mm;">
-                    <h4>SBTE, PATNA, BIHAR</h4>
-                    <h4>Academic Year 2024-2025</h4>
-                    <h4>MINOR PROJECT REPORT</h4>
-                </div>
-                <div style="text-align: center; margin-top: 8mm;">
-                 <img src="money-handling-assets-image2.png" alt="SBTE Logo" class="logo logo-large">
-                </div>
-            </div>
-           <div>
-                <strong>On</strong><br>
-            
-           </div>
-            <div style="text-align: center;">
-                <h1> EXPENSE MANAGER ANDROID APPLICATION  </h1>
-                <h2>A Complete Financial Management Solution</h2>
-            </div>
-          
-           
-        </div>
-        
-
-        <div style="margin: 40px 0; padding-bottom: 150px; ">
-            <div style="font-size: 14pt; margin-bottom: 10px; text-align: center;"><strong>SUBMITTED BY</strong></div> <BR>
-            <div style="text-align: center;">
-                <div style="font-size: 12pt; margin-bottom: 5px;">WAQUAR AHMED SHIBLI (23-CS-001)</div>
-                <div style="font-size: 12pt; margin-bottom: 5px;">Faizee Hassan Azad (23-CS-003)</div>
-                <div style="font-size: 12pt; margin-bottom: 5px;">Imran Hassan (23-CS-009)</div>
-                <div style="font-size: 12pt; margin-bottom: 5px;">Md Dilshad Alam (23-CS-601)</div>
-                
-            </div>
-        </div>
-        
-        <div style="display: flex;">
-            <div style="text-align: right;">
-                <div style="font-size: 12pt; text-align: left;">Under the Guidance of</div>
-                <div style="font-size: 12pt; text-align: LEFT;"><strong>Dr. Shabbir Hasan</strong></div>
-            </div>
-            <div style="margin-left: 50%;">
-                <div style="font-size: 12pt; text-align: left;">HOD of</div>
-                <div style="font-size: 12pt; text-align: LEFT;"><strong>Mr. Mazhar Eqbal</strong></div>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 15mm;">
-            <div style="font-size: 12pt;">Finall Year (5<sup>th</sup> Semester)</div>
-            <div style="font-size: 12pt;">Session 2023 - 2026</div>
-        </div>
-        <div class="page-number">1</div>
-    </div>
-
-    <!-- extra Page 2: Project Title Page -->
-        <div class="pages">
-            <div class="center">
-                <h2>A</h2>
-                <h2>MINOR PROJECT REPORT</h2>
-                <h3>on</h3>
-                <h1 class="project-titleee">"EXPENSE MANAGER ANDROID APPLICATION"</h1> 
-        
-                    <p>Submitted in partial fulfillment for the requirement of</p>
-                    <p><strong>DIPLOMA COURSE</strong></p>
-                    <p>In</p>
-                    <p><strong>COMPUTER SCIENCE</strong></p>
-                </div>
-                
-                <div class="spaceree"></div>
-                
-                <h4 class="center"><u>Under the Supervision of</u></h4>
-                
-                <div class="spaceree"></div>
-                
-                <p><strong>Guide</strong></p>
-                <p>[ Dr. SHABBIR HASSAN ]</p>
-              
-                
-                <div class="spaceree"></div>
-                
-                <!-- Logo 3 -->
-                 <div class="center">
-                <img src="money-handling-assets-image3.png" alt="College Logo" class="logo logo-medium">
-                </div>
-                <div class="spaceree"></div>
-                
-                <p><strong>SESSION 2023-2026</strong></p>
-                
-                <div class="spaceree"></div>
-                
-                <p><strong>DEPARTMENT OF COMPUTER SCIENCE</strong></p>
-                <p><strong>MAULANA AZAD COLLEGE OF ENGINEERING & TECHNOLOGY,</strong></p>
-                <p><strong>GORHNA P.O: NEORA, PATNA</strong></p>
-            <div class="page-number">2</div>
-            </div>
-        </div>
-        
-
-        
-
-    <!-- Page 3: Certificate -->
-    <div class="pages">
-        <div class="header">
-             <div class="center">
-                <h2>MAULANA AZAD COLLEGE OF ENGINEERING & TECHNOLOGY</h2>
-                
-                <!-- Logo 1 -->
-                <img src="money-handling-assets-image1.png" alt="College Logo" class="logo logo-small">
-                
-                <p><strong>DEPARTMENT OF COMPUTER SCIENCE</strong></p>
-                <p><strong>SESSION- 2023-2026</strong></p>
-            </div>
-            <h1> <u> CERTIFICATE </u> </h1>
-        </div>
-        
-        <div class="section">
-            <p>This is to certify that <strong>WAQUAR AHMED SHIBLI, Faizee Hassan Azad,  Imran Hassan, Md Dilshad Alam. </strong> Student(s) of Third Year 5<sup>th</sup> semester In <strong>Computer Science</strong> branch has successfully completed the project work Entitled <strong>"EXPENSE MANAGER ANDROID APPLICATION"</strong>. This Technical Minor Project is hereby approved for submission towards partial fulfillment for the requirement of the <strong>DIPLOMA</strong> in <strong>COMPUTER SCIENCE</strong> from <strong>SBTE, PATNA, BIHAR.</strong></p>
-        </div>
-
-        <div style="margin-top: 30mm;">
-            <table class="signature-table">
-                <tr>
-                    <td>
-                        <strong>Project Guide</strong><br>
-                        Dr. SHABBIR HASSAN<br>
-                        Department of CSE
-                    </td>
-                    <td>
-                        <strong>HOD</strong><br>
-                        Mr. MAZHAR EQUBAL<br>
-                        Department of CSE
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div style="text-align: center;">
-            <p><strong>External Examiner</strong></p>
-            <p>_________________________</p>
-        </div>
-        <div class="page-number">3</div>
-    </div>
-
-    <!-- extra add page -->
-     <!-- Acknowledgment -->
-        <div class="pages">
-            <div class="center">
-                <h2>MAULANA AZAD COLLEGE OF ENGINEERING & TECHNOLOGY</h2>
-                
-                <!-- Logo 1 -->
-                <img src="money-handling-assets-image1.png" alt="College Logo" class="logo logo-small" style="margin-top: 10mm; margin-bottom: 10mm;">
-                
-                <p><strong>DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</strong></p>
-                <p><strong>SESSION- 2023-2026</strong></p>
-                
-                <div class="spaceree"></div>
-                
-                <h2 class="underlineee">ACKNOWLEDGMENT</h2>
-                
-                <div class="spaceree"></div>
-            </div>
-            
-            <div style="font-size: 18pt; line-height: 1.5; margin: 20px 0;">
-                <div style="text-align: justify; margin-bottom: 20px; font-size: large;">
-                    We are very much thankful to our <strong>HOD Mr. Mazhar Eqbal</strong> for providing us support and guidance to accomplish this project work.
-                    
-                    We are very grateful to our <strong>Project Guide Dr. Shabbir Hasan</strong> for being instrumental in the completion of our project with his/her complete guidance.
-                    
-                    We also thank all the staff members of our college and technicians for their help in making this project a successful one.
-                    
-                    Finally, we take this opportunity to extend our deep appreciation to our family and friends, for all that they meant to us during the crucial times of the completion of our project. 
-                </div>
-                
-                <div style=" margin-top: 30px; font-size: large; font-weight: bold;">
-                     <div>WAQUAR AHMED SHIBLI (23-CS-001)</div>
-                     <div>Faizee Hassan Azad(23-CS-003)</div>
-                     <div> Imran Hassan (23-CS-009)</div>
-                    <div>Md Dilshad Alam (23-CS-601)</div>
-                   
-                </div> 
-                <div class="page-number">4</div>
-            </div>
-        </div>
-
-         <!-- extra -->
-          <!-- Page 5: Approval Sheet -->
-        <div class="pages">
-            <div class="center">
-                <h2>MAULANA AZAD COLLEGE OF ENGINEERING & TECHNOLOGY</h2>
-                
-                <!-- Logo 1 -->
-                <img src="money-handling-assets-image1.png" alt="College Logo" class="logo logo-small" style="margin-top: 10mm; margin-bottom: 10mm;">
-                
-                <p><strong>DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</strong></p>
-                <p><strong>SESSION- 2023-2026</strong></p>
-                
-                <div class="spacer"></div>
-                
-                <h2 class="underline" style="margin-top: 5mm; margin-bottom: 10mm;">APPROVAL SHEET</h2>
-                
-                <div class="spaceree"></div>
-            </div>
-            
-            <div class="content">
-                <p><em>This is to certify that</em> <strong> WAQUAR AHMED SHIBLI, Faizee Hassan Azad,  Imran Hassan, Md Dilshad Alam.</strong>, <em>Student(s) of third year 5th semester in</em> <strong>COMPUTER SCIENCE</strong> <em>branch has successfully completed the Minor project work Entitled</em> <strong>EXPENSE MANAGER ANDROID APPLICATION</strong><em>.</em> <em>This Technical Project is hereby approved for submission towards partial fulfillment for the requirement of DIPLOMA in</em> <strong>COMPUTER SCIENCE</strong> <em>from</em><strong>, SBTE, PATNA, BIHAR.</strong></p>
-                
-                
-                
-                <div style="display: flex; justify-content: space-between; width: 80%; margin: 40px auto 0;">
-                    <div style="text-align: center;">
-                        <p style="margin-top: 30mm; text-align: left;">(INTERNAL EXAMINER)</p>
-                        <div class="spacer"></div>
-                        <p style="margin-top: 8mm; text-align: left;">Date:____________________</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <p style="margin-top: 30mm;text-align: right;">(EXTERNAL EXAMINER)</p>
-                        <div class="spaceree"></div>
-                        <p style="text-align: left;">Date:_____________________ </p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-number">5</div>
-        </div>
-    </body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Handling App - Project Report (12 Pages)</title>
-    <style>
-        /* A4 Page Settings - Exact A4 Size */
-        @page {
-            size: A4;
-            margin: 0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Times New Roman', serif;
-        }
-        
-        body {
-            background: #f5f5f5;
-            line-height: 1.5;
-            font-size: 12pt;
-        }
-        
-        .a4-page {
-            width: 210mm;
-            height: 297mm;
-            background: white;
-            margin: 0 auto 5mm auto;
-            padding: 20mm;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            position: relative;
-            page-break-after: always;
-            overflow: hidden;
-        }
-        
-        /* Header and Footer */
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .footer {
-            position: absolute;
-            bottom: 15mm;
-            width: calc(100% - 40mm);
-            text-align: center;
-            font-size: 10pt;
-            border-top: 1px solid #000;
-            padding-top: 5px;
-        }
-        
-        /* Typography */
-        h1 {
-            font-size: 16pt;
-            text-align: center;
-            margin: 15px 0;
-            text-decoration: underline;
-        }
-        
-        h2 {
-            font-size: 14pt;
-            margin: 12px 0 8px 0;
-            color: #000;
-        }
-        
-        h3 {
-            font-size: 13pt;
-            margin: 10px 0 6px 0;
-        }
-        
-        p {
-            margin-bottom: 10px;
-            text-align: justify;
-        }
-        
-        /* Lists */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        li {
-            margin-bottom: 5px;
-        }
-        
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 11pt;
-        }
-        
-        th {
-            background: #f0f0f0;
-            border: 1px solid #000;
-            padding: 6px;
-            text-align: left;
-        }
-        
-        td {
-            border: 1px solid #000;
-            padding: 5px;
-        }
-        
-        /* Code Blocks */
-        .code-block {
-            background: #f8f8f8;
-            border-left: 3px solid #000;
-            padding: 10px;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 10pt;
-            overflow-x: auto;
-        }
-        
-        /* Sections */
-        .section {
-            margin-bottom: 15px;
-        }
-        
-        .bold {
-            font-weight: bold;
-        }
-        
-        .center {
-            text-align: center;
-        }
-        
-        .right {
-            text-align: right;
-        }
-        
-        /* Page Numbers */
-        .page-number {
-            position: absolute;
-            bottom: 20mm;
-            right: 20mm;
-            font-size: 10pt;
-        }
-        
-        /* Print Specific */
-        @media print {
-            body {
-                background: white;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .a4-page {
-                width: 210mm;
-                height: 297mm;
-                margin: 0;
-                padding: 20mm;
-                box-shadow: none;
-                page-break-after: always;
-            }
-            
-            .no-print {
-                display: none;
-            }
-        }
-        
-        /* Compact Layouts */
-        .compact-table {
-            font-size: 10pt;
-        }
-        
-        .compact-table td, .compact-table th {
-            padding: 4px;
-        }
-        
-        .two-column {
-            column-count: 2;
-            column-gap: 20px;
-            margin: 15px 0;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 15px 0;
-        }
-        
-        .team-member {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05060b">
+  <meta name="description" content="TDS Tech Solution — premium digital project universe by MD Dilshad Alam.">
+  <title>TDS Tech Solution — Project Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="ambient ambient-c"></div>
 
-<!-- PAGE 6: TITLE PAGE -->
-<div class="a4-page">
-    <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <div class="header" style="border: none; width: 100%;">
-            <h1 style="font-size: 24pt; text-decoration: none;">MAULANA AZAD COLLEGE OF ENGINEERING AND TECHNOLOGY</h1>
-            <h2 style="font-size: 18pt;">Department of Computer Science & Engineering</h2>
-        </div>
-        
-        <div style="text-align: center;">
-            <img src="money-handling-assets-MONEY HANDLING.jpeg" alt="" align="center" style="display: block; margin: 20px auto; width: 100px; height: auto;">
-            <h1 style="font-size: 28pt; color: #000; text-decoration: none;">MONEY HANDLING</h1>
-            <h2 style="font-size: 16pt;">Personal Finance Management System</h2>
-            <h3 style="font-size: 14pt;">Android Application Project Report</h3>
-        </div>
-        
-        <div style="margin: 15px 0; text-align: center;">
-            <h3>Submitted By:</h3>
-            <div class="team-grid" style="width: 80%;">
-                <div class="team-member">
-                    <p class="bold">WAQUAR AHMED SHIBLI </p>
-                    <p>(23-CS-001)</p>
-                </div>
-                <div class="team-member">
-                    <p class="bold">Faizee Hassan Azad</p>
-                    <p>23-CS-003</p>
-                </div>
-                <div class="team-member">
-                    <p class="bold">Imran Hassan</p>
-                    <p>23-CS-009</p>
-                </div>
-                <div class="team-member">
-                    <p class="bold">Md Dilshad Alam</p>
-                    <p>23-CS-012</p>
-                </div>
-            </div>
-        </div>
-        
-        <div style="margin-top: 20px; text-align: center;">
-            <p class="bold">Under the Guidance of</p>
-            <p>Dr. Shabbir Hasan</p>
-            <p>Department of Computer Science & Engineering</p>
-        </div>
-        
-        <div style="margin-top: 30px; text-align: center;">
-            <p class="bold">Date of Submission: December 16, 2025</p>
-        </div>
+  <!-- =====================================================
+       PREMIUM 3–5 SECOND INTRO
+       ===================================================== -->
+  <section class="intro" id="intro">
+    <div class="intro-grid"></div>
+    <div class="intro-orbit intro-orbit-a"></div>
+    <div class="intro-orbit intro-orbit-b"></div>
+    <div class="intro-center">
+      <div class="logo-stage large">
+        <div class="logo-glow"></div>
+        <div class="logo-ring ring-1"></div>
+        <div class="logo-ring ring-2"></div>
+        <div class="logo-ring ring-3"></div>
+        <img class="tds-logo-image intro-logo" src="tds-logo.png" alt="TDS Tech Solution logo">
+      </div>
+      <div class="intro-brand">TDS Tech Solution</div>
+      <div class="intro-sub">PROJECT UNIVERSE • DIGITAL WORKS</div>
+      <div class="intro-ai">✦ BUILT WITH AI ASSISTANCE • HUMAN DIRECTION</div>
+      <div class="intro-loading"><span></span></div>
+      <button class="skip-intro magnetic" id="skipIntro">ENTER NOW <b>↗</b></button>
     </div>
-    <div class="footer">
-        Page 6
+  </section>
+
+  <header class="site-header">
+    <a class="brand-lockup" href="#home" aria-label="TDS Tech Solution home">
+      <div class="brand-logo-shell">
+        <img class="tds-logo-image mini" src="logo-.png" alt="TDS Tech Solution logo">
+      </div>
+      <div class="brand-name-wrap">
+        <div class="brand-name-frame"><span class="brand-name">TDS Tech Solution</span></div>
+        <span class="brand-sub">PROJECT UNIVERSE • DIGITAL WORKS</span>
+      </div>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#contact">Contact</a>
+          </nav>
+
+    <button class="menu-btn magnetic" id="menuBtn" aria-label="Open navigation"><span></span><span></span></button>
+  </header>
+
+  <main id="home">
+    <!-- =====================================================
+         HOME
+         ===================================================== -->
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><i></i> PROJECT UNIVERSE <span>•</span> DIGITAL WORKS</div>
+        <h1>Ideas into<br><em>interactive reality.</em></h1>
+        <p class="hero-text">
+          The personal technology archive of <strong>MD DILSHAD ALAM</strong> — bringing together Android apps,
+          web experiences, IoT builds and future AI experiments under <strong>TDS Tech Solution</strong>.
+        </p>
+        <div class="hero-ai-note"><span>✦</span> Projects created with AI assistance + personal direction, implementation and refinement.</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#projects">Explore Projects <span>↗</span></a>
+          <a class="btn btn-ghost magnetic" href="#about">Meet the Creator <span>↓</span></a>
+        </div>
+        <div class="stats">
+          <div><b>08+</b><span>Current works</span></div>
+          <div><b>04</b><span>Tech areas</span></div>
+          <div><b>01</b><span>Creator</span></div>
+          <div><b>∞</b><span>Future builds</span></div>
+        </div>
+      </div>
+
+      <!-- Previous-style right-side featured card -->
+      <div class="hero-visual reveal delay-1">
+        <div class="hero-orbit orbit-x"></div>
+        <div class="hero-orbit orbit-y"></div>
+        <div class="hero-card tilt-card" id="featuredCard">
+          <div class="hero-card-top"><span id="featuredIndex">01 / 08</span><span class="live"><i></i> LIVE ARCHIVE</span></div>
+          <div class="hero-card-stage">
+            <div class="scan-ring"></div>
+            <div class="scan-ring ring-b"></div>
+            <div class="hero-card-logo"><img class="tds-logo-image hero-logo" src="tds-logo.png" alt="TDS Tech Solution logo"></div>
+            <div class="card-particles"></div>
+          </div>
+          <div class="featured-copy">
+            <div class="featured-kicker" id="featuredCategory">ANDROID • AI ASSISTED</div>
+            <h3 id="featuredTitle">Expense Manager</h3>
+            <p id="featuredDesc">Personal finance management workflow with expenses, income and ledger-style records.</p>
+            <div class="featured-tags" id="featuredTags"><span>Android</span><span>Java</span><span>SQLite</span></div>
+            <button class="mini-action magnetic" id="featuredOpen">OPEN PROJECT <b>↗</b></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track"><span>ANDROID</span><b>✦</b><span>WEB</span><b>✦</b><span>IoT</span><b>✦</b><span>AI</span><b>✦</b><span>UI / UX</span><b>✦</b><span>ANDROID</span><b>✦</b><span>WEB</span><b>✦</b><span>IoT</span><b>✦</b><span>AI</span><b>✦</b><span>UI / UX</span><b>✦</b></div>
     </div>
-</div>
 
-
-
-<!-- PAGE 8: ABSTRACT -->
-<div class="a4-page">
-    <h1>ABSTRACT</h1>
-    
-    <div class="section">
-        <p>The <span class="bold">Money Handling</span> application is an Android-based personal finance management system designed to help users track income, expenses, and manage budgets efficiently. In today's digital age where financial literacy is crucial, this application provides a simple yet powerful solution for individuals to take control of their finances.</p>
-        
-        <p>The application features comprehensive financial tracking with real-time balance calculation, transaction categorization, budget planning, bill reminders, and detailed financial reports. Built using native Android technologies, the app ensures smooth performance and offline functionality.</p>
-    </div>
-    
-    <h2>Key Features:</h2>
-    <ul>
-        <li>Real-time balance tracking and calculation</li>
-        <li>Income and expense management with categorization</li>
-        <li>Budget planning and monitoring system</li>
-        <li>Bill tracking with reminder functionality</li>
-        <li>Transaction history with date-wise filtering</li>
-        <li>Category-wise spending analysis</li>
-        <li>Offline functionality without internet dependency</li>
-        <li>User-friendly interface with color-coded feedback</li>
-    </ul>
-    
-    <h2>Technical Specifications:</h2>
-    <table class="compact-table">
-        <tr>
-            <th>Component</th>
-            <th>Specification</th>
-        </tr>
-        <tr>
-            <td>Development Platform</td>
-            <td>Android Studio</td>
-        </tr>
-        <tr>
-            <td>Programming Language</td>
-            <td>Java</td>
-        </tr>
-        <tr>
-            <td>Database</td>
-            <td>SQLite</td>
-        </tr>
-        <tr>
-            <td>Minimum SDK</td>
-            <td>API 21 (Android 5.0)</td>
-        </tr>
-        <tr>
-            <td>Target SDK</td>
-            <td>API 34 (Android 14)</td>
-        </tr>
-        <tr>
-            <td>Architecture</td>
-            <td>MVC Pattern</td>
-        </tr>
-    </table>
-    
-    <p>The application follows the Model-View-Controller architecture pattern, ensuring clean separation of concerns and maintainable code structure. With its intuitive interface and robust backend, the Money Handling app serves as a complete financial companion for students and professionals alike.</p>
-    
-    <div class="footer">
-        Page 8
-    </div>
-</div>
-
-<!-- PAGE 9: INTRODUCTION -->
-<div class="a4-page">
-    <h1>1. INTRODUCTION</h1>
-    
-    <h2>1.1 Problem Statement</h2>
-    <p>In today's digital age, effective financial management has become crucial for individuals. Students and young professionals often struggle with tracking expenses, maintaining budgets, and managing bills. Traditional methods like maintaining physical records or using spreadsheet software are time-consuming and error-prone.</p>
-    
-    <h2>1.2 Objectives</h2>
-    <ul>
-        <li>Develop an Android application for personal finance management</li>
-        <li>Implement real-time balance calculation and display</li>
-        <li>Create user-friendly interface for transaction management</li>
-        <li>Incorporate budget tracking and bill management features</li>
-        <li>Generate spending reports and analytics</li>
-        <li>Ensure data persistence using SQLite database</li>
-    </ul>
-    
-    <h2>1.3 Scope</h2>
-    <p>The application is designed for individual users to record daily transactions, categorize expenses, set budgets, track bills, and analyze spending patterns. It works offline without internet connectivity and stores all data locally for privacy.</p>
-    
-    <h2>1.4 Target Users</h2>
-    <div class="two-column">
+    <!-- =====================================================
+         PROJECTS
+         ===================================================== -->
+    <section class="projects section" id="projects">
+      <div class="section-head reveal">
         <div>
-            <h3>Students</h3>
-            <ul>
-                <li>Manage allowances</li>
-                <li>Track educational expenses</li>
-                <li>Learn budgeting skills</li>
-            </ul>
+          <div class="eyebrow"><i></i> SELECTED WORKS</div>
+          <h2>Project <em>Universe</em></h2>
         </div>
+        <p>Explore the projects through their details, technology, features, reports and available live demos.</p>
+      </div>
+
+      <div class="filters reveal delay-1" id="filters"></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <!-- =====================================================
+         AGENTX SPECIAL PROJECT
+         ===================================================== -->
+    <section class="agentx section" id="agentx">
+      <div class="agentx-shell reveal">
+        <div class="agentx-copy">
+          <div class="special-badge">✦ SPECIAL PROJECT • IN DEVELOPMENT</div>
+          <h2>TDS <em>AgentX AI</em></h2>
+          <p>
+            A future all-in-one AI platform currently being developed to assist with <strong>image, video,
+            website, Android app and other generation workflows</strong>. It is intentionally presented as a special upcoming build.
+          </p>
+          <div class="coming-soon"><span></span> COMING SOON • BUILD IN PROGRESS</div>
+          <div class="agentx-mini-grid">
+            <div>IMAGE<span>Generation</span></div>
+            <div>VIDEO<span>Generation</span></div>
+            <div>WEB<span>Generation</span></div>
+            <div>ANDROID<span>Generation</span></div>
+          </div>
+        </div>
+        <div class="agentx-visual"><div class="agent-orb"></div><div class="agent-axis axis-a"></div><div class="agent-axis axis-b"></div><div class="agent-core-text">AGENTX</div></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+    <section class="about section" id="about">
+      <div class="section-head reveal">
         <div>
-            <h3>Professionals</h3>
-            <ul>
-                <li>Salary management</li>
-                <li>Expense tracking</li>
-                <li>Tax planning</li>
-            </ul>
+          <div class="eyebrow"><i></i> ABOUT THE CREATOR</div>
+          <h2>MD DILSHAD <em>ALAM</em></h2>
         </div>
-    </div>
-    
-    <h2>1.5 Technologies Used</h2>
-    <table class="compact-table">
-        <tr>
-            <td>Frontend</td>
-            <td>Android XML Layouts</td>
-        </tr>
-        <tr>
-            <td>Backend</td>
-            <td>Java Programming</td>
-        </tr>
-        <tr>
-            <td>Database</td>
-            <td>SQLite</td>
-        </tr>
-        <tr>
-            <td>Development Tool</td>
-            <td>Android Studio</td>
-        </tr>
-        <tr>
-            <td>Architecture</td>
-            <td>MVC Pattern</td>
-        </tr>
-    </table>
-    
-    <div class="footer">
-        Page 9
-    </div>
-</div>
+        <p>One creator, one project universe — documenting software, hardware, experiments and the path toward building TDS AgentX AI.</p>
+      </div>
+      <div class="about-grid">
+        <div class="glass-panel reveal">
+          <div class="panel-label">CREATION MODEL</div>
+          <h3>Human direction.<br><em>AI-assisted execution.</em></h3>
+          <p>
+            The portfolio projects are presented as individual builds created by MD DILSHAD ALAM.
+            AI tools are used as a development and creative assistant while the project direction, testing and refinement remain part of the build process.
+          </p>
+        </div>
+        <div class="glass-panel reveal delay-1">
+          <div class="panel-label">CURRENT FOCUS</div>
+          <div class="focus-row"><span>ANDROID</span><b>Apps & utilities</b></div>
+          <div class="focus-row"><span>WEB</span><b>Interactive browser projects</b></div>
+          <div class="focus-row"><span>IoT</span><b>Connected hardware & control</b></div>
+          <div class="focus-row"><span>AI</span><b>TDS AgentX — in development</b></div>
+        </div>
+      </div>
+    </section>
 
-<!-- PAGE 10: SYSTEM DESIGN -->
-<div class="a4-page">
-    <h1>2. SYSTEM DESIGN</h1>
-    
-    <h2>2.1 Architecture</h2>
-    <p>The application follows Three-Tier Architecture:</p>
-    
-    <div class="code-block">
-┌─────────────────────────┐
-│   PRESENTATION LAYER    │
-│  • MainActivity         │
-│  • HistoryActivity      │
-│  • XML Layouts          │
-└───────────┬─────────────┘
-            │
-┌───────────▼─────────────┐
-│   BUSINESS LOGIC LAYER  │
-│  • DatabaseHelper       │
-│  • Transaction Logic    │
-│  • Budget Calculations  │
-└───────────┬─────────────┘
-            │
-┌───────────▼─────────────┐
-│      DATA LAYER         │
-│  • SQLite Database      │
-│  • Three Tables:        │
-│    - transactions       │
-│    - budgets            │
-│    - bills              │
-└─────────────────────────┘
-    </div>
-    
-    <h2>2.2 Database Design</h2>
-    
-    <h3>2.2.1 Transactions Table</h3>
-    <div class="code-block">
-CREATE TABLE transactions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    amount REAL NOT NULL,
-    type TEXT NOT NULL,
-    category TEXT NOT NULL,
-    description TEXT,
-    date TEXT NOT NULL
-);
-    </div>
-    
-    <h3>2.2.2 Budgets Table</h3>
-    <div class="code-block">
-CREATE TABLE budgets (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    category TEXT UNIQUE NOT NULL,
-    month TEXT NOT NULL,
-    limit_amount REAL NOT NULL
-);
-    </div>
-    
-    <h3>2.2.3 Bills Table</h3>
-    <div class="code-block">
-CREATE TABLE bills (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    bill_name TEXT NOT NULL,
-    amount REAL NOT NULL,
-    due_date TEXT NOT NULL,
-    is_paid INTEGER DEFAULT 0
-);
-    </div>
-    
-    <h2>2.3 Flow Diagram</h2>
-    <div class="code-block" style="text-align: center;">
-Start → Main Activity → Add Transaction → 
-Validate Input → Save to Database → 
-Update Balance → Display Result
-    </div>
-    
-    <div class="footer">
-        Page 10
-    </div>
-</div>
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+    <section class="contact section" id="contact">
+      <div class="section-head reveal">
+        <div><div class="eyebrow"><i></i> CONTACT</div><h2>Let's build <em>something.</em></h2></div>
+        <p>For project discussions, collaboration and technical conversations, choose your preferred contact method.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="glass-panel contact-info reveal">
+          <div class="panel-label">TDS TECH SOLUTION</div>
+          <h3>Project discussion,<br>collaboration or technical conversation.</h3>
+          <p>Choose Email or WhatsApp when you send the form. Social profiles are available below.</p>
+          <div class="contact-list">
+            <div><span>EMAIL</span><a href="mailto:mddilshadbilal@gmail.com">mddilshadbilal@gmail.com</a></div>
+            <div><span>WHATSAPP / PHONE</span><a href="https://wa.me/917654406857">+91 76544 06857</a></div>
+            <div><span>LOCATION</span><b>Patna, Bihar, India</b></div>
+          </div>
+          <div class="social-links">
+            <a href="https://www.instagram.com/mddilshadbilal786/" target="_blank" rel="noopener">Instagram <span>@mddilshadbilal786</span></a>
+            <a href="https://www.linkedin.com/search/results/people/?keywords=Md%20Dilshad%20Bilal" target="_blank" rel="noopener">LinkedIn <span>Md Dilshad Bilal</span></a>
+          </div>
+        </div>
+        <form class="glass-panel form reveal delay-1" id="contactForm">
+          <div class="form-row"><input id="contactName" placeholder="Your name" required><input id="contactSenderEmail" type="email" placeholder="Your email" required></div>
+          <textarea id="contactMessage" placeholder="Tell me about your requirement..." required></textarea>
+          <div class="contact-method">
+            <span>Send via</span>
+            <label><input type="radio" name="contactMethod" value="email" checked> Email</label>
+            <label><input type="radio" name="contactMethod" value="whatsapp"> WhatsApp</label>
+          </div>
+          <button class="btn btn-primary magnetic" type="submit">Send Message <span>↗</span></button>
+        </form>
+      </div>
+    </section>
 
-<!-- Page 11: IMPLEMENTATION -->
-<div class="a4-page">
-    <h1>3. IMPLEMENTATION</h1>
-    
-    <h2>3.1 Core Classes</h2>
-    
-    <h3>3.1.1 MainActivity.java</h3>
-    <div class="code-block">
-public class MainActivity extends AppCompatActivity {
-    // UI Components
-    TextView balanceText;
-    EditText amountEdit, descEdit;
-    Spinner typeSpinner;
-    Button addButton, viewButton;
-    
-    DatabaseHelper dbHelper;
-    double currentBalance = 0.0;
-    
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        dbHelper = new DatabaseHelper(this);
-        initializeViews();
-        setupSpinner();
-        updateBalanceFromDB();
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand"><img class="tds-logo-image footer-logo" src="tds-logo.png" alt="TDS Tech Solution logo"><div><strong>TDS Tech Solution</strong><span>PROJECT UNIVERSE • DIGITAL WORKS</span></div></div>
+    <div>© <span id="year"></span> TDS Tech Solution • MD DILSHAD ALAM</div>
+    <a href="#home" class="magnetic back-top">BACK TO TOP ↑</a>
+  </footer>
+
+  <!-- =====================================================
+       PROJECT ADD GUIDE
+       PROJECT ADDING (EASY UPDATE)
+       Project cards are generated from the objects below. To add
+       another project, copy one complete project block/object,
+       paste it below the previous one, then update the details.
+       This is the project-card data equivalent of copying the
+       project div: the design and detail drawer update automatically.
+       ===================================================== -->
+  <script type="application/json" id="projectData">
+  [
+    {
+      "id":"expense-manager","number":"01","category":"android","label":"ANDROID","title":"Expense Manager","symbol":"₹",
+      "description":"Android finance-management application for income, expenses, person records, ledger entries and everyday money tracking.",
+      "tech":["Android","Java","SQLite","Material UI"],
+      "features":["Income & expense tracking","Person / ledger management","Transaction history","Balance calculation","Recycle-bin recovery","Monthly reporting"],
+      "status":"MAJOR PROJECT","cover":"expense-manager-cover.png","demo":"#","report":"expense-manager-index.html"
+    },
+    {
+      "id":"money-handling","number":"02","category":"android","label":"ANDROID","title":"Money Handling App","symbol":"◈",
+      "description":"Android project focused on organized money records, transaction handling and a practical financial workflow.",
+      "tech":["Android","Java","SQLite","UI / UX"],
+      "features":["Money records","Transaction workflow","History view","Data organization","Mobile-first interface","Structured app flow"],
+      "status":"PROJECT","cover":"money-handling-cover.jpeg","demo":"#","report":"money-handling-report.html"
+    },
+    {
+      "id":"tds-classes","number":"03","category":"android","label":"ANDROID","title":"TDS Classes","symbol":"T",
+      "description":"Education-focused Android application for class information, student-oriented flows and organized learning management features.",
+      "tech":["Android","Java","Firebase","Material Design"],
+      "features":["Student management","Class information","OTP login flow","Attendance-oriented workflow","Organized content","Mobile interface"],
+      "status":"PROJECT","cover":"tds-classes-cover.jpeg","demo":"#","report":"tds-classes-report.html"
+    },
+    {
+      "id":"typing-test","number":"04","category":"web","label":"WEB","title":"Typing Test","symbol":"⌨",
+      "description":"Interactive browser typing experience focused on speed, accuracy, timing, progress feedback and responsive interaction.",
+      "tech":["HTML","CSS","JavaScript","Web UI"],
+      "features":["Typing speed test","Accuracy tracking","Instant feedback","Responsive interface","Practice workflow","Browser-based experience"],
+      "status":"PLAYABLE","cover":"","demo":"typing-test-index.html","report":"#"
+    },
+    {
+      "id":"typing-game","number":"05","category":"web","label":"WEB","title":"Typing Game","symbol":"✦",
+      "description":"Browser game project built around keyboard interaction, speed challenge, scoring and replayable gameplay.",
+      "tech":["HTML","CSS","JavaScript","Game Logic"],
+      "features":["Interactive gameplay","Score system","Speed challenge","Keyboard interaction","Responsive design","Replay workflow"],
+      "status":"PLAYABLE","cover":"","demo":"typing-game-index.html","report":"#"
+    },
+    {
+      "id":"iot-wifi-car","number":"06","category":"iot","label":"IoT","title":"IoT WiFi Controlled Car","symbol":"◈",
+      "description":"WiFi-controlled robotic car with directional movement, indicators, horn and browser-based operation using NodeMCU ESP8266.",
+      "tech":["ESP8266","L298N","DC Motors","WiFi","OLED"],
+      "features":["WiFi control","Forward / reverse","Left / right movement","Indicators","Horn","Browser control interface"],
+      "status":"HARDWARE PROJECT","cover":"iot-car.png","demo":"#","report":"iotcar-index.html"
+    },
+    {
+      "id":"iot-smart-parking","number":"07","category":"iot","label":"IoT","title":"IoT Smart Parking","symbol":"P",
+      "description":"Smart parking project using connected sensing and automation concepts to detect and communicate parking availability.",
+      "tech":["Arduino","Ultrasonic Sensor","Servo Motor","IoT","Automation"],
+      "features":["Parking availability","Sensor-based detection","Automatic gate concept","Real-time status","Connected hardware","Automation workflow"],
+      "status":"HARDWARE PROJECT","cover":"","demo":"#","report":"iot-smart-parking-index.html"
+    },
+    {
+      "id":"tds-communicationX","number":"08","category":"ai","label":"AI","title":"TDS CommunicationX AI","symbol":"✧",
+      "description":"Any language learn and practice free of cost",
+      "tech":["AI assist","Generation","Automation","Future Platform"],
+      "features":["easy to learn and practice"],
+      "status":"COMING SOON","cover":"","demo":"#Communicationx","report":"#"
     }
-    
-    private void addTransaction() {
-        String amountStr = amountEdit.getText().toString();
-        if (amountStr.isEmpty()) {
-            Toast.makeText(this, "Please enter amount!", 
-                          Toast.LENGTH_SHORT).show();
-            return;
-        }
-        // Add transaction logic
+    ,
+    {
+      "id":"tds-agentx","number":"09","category":"ai","label":"AI","title":"TDS AgentX AI","symbol":"✧",
+      "description":"In-development all-in-one AI platform planned for image, video, website, Android and other generation workflows.",
+      "tech":["AI","Generation","Automation","Future Platform"],
+      "features":["Image generation","Video generation","Website generation","Android generation","Automation ideas","Future AI tools"],
+      "status":"COMING SOON","cover":"","demo":"#agentx","report":"#"
     }
-}
-    </div>
-    
-    <h3>3.1.2 DatabaseHelper.java</h3>
-    <div class="code-block">
-public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "MoneyDB";
-    private static final int DATABASE_VERSION = 2;
-    
-    public void onCreate(SQLiteDatabase db) {
-        // Create tables
-        String CREATE_TRANSACTIONS_TABLE = "CREATE TABLE " + 
-            TABLE_TRANSACTIONS + "(" + KEY_ID + 
-            " INTEGER PRIMARY KEY AUTOINCREMENT," + 
-            KEY_AMOUNT + " REAL," + KEY_TYPE + " TEXT," + 
-            KEY_CATEGORY + " TEXT," + KEY_DESCRIPTION + 
-            " TEXT," + KEY_DATE + " TEXT" + ")";
-        db.execSQL(CREATE_TRANSACTIONS_TABLE);
-    }
-    
-    public void addTransaction(double amount, String type, 
-                              String category, String description) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(KEY_AMOUNT, amount);
-        values.put(KEY_TYPE, type);
-        values.put(KEY_CATEGORY, category);
-        values.put(KEY_DESCRIPTION, description);
-        values.put(KEY_DATE, java.text.DateFormat
-                   .getDateTimeInstance().format(new java.util.Date()));
-        db.insert(TABLE_TRANSACTIONS, null, values);
-        db.close();
-    }
-}
-    </div>
-    
-    <div class="footer">
-        Page 11
-    </div>
-</div>
+  ]
+  </script>
 
-<!-- PAGE 12: FEATURES -->
-<div class="a4-page" style="padding-top: 30px;">
-    <h1>4. FEATURES</h1>
-    
-    <h2>4.1 Transaction Management</h2>
-    <ul>
-        <li><span class="bold">Income Recording:</span> Salary, freelance, gifts</li>
-        <li><span class="bold">Expense Tracking:</span> Food, shopping, travel, medical</li>
-        <li><span class="bold">Categorization:</span> 7 predefined categories</li>
-        <li><span class="bold">Date Tracking:</span> Automatic timestamp</li>
-        <li><span class="bold">Description:</span> Optional detailed notes</li>
-    </ul>
-    
-    <h2>4.2 Budget System</h2>
-    <ul>
-        <li>Default budgets for common categories</li>
-        <li>Real-time spending tracking</li>
-        <li>Budget limit warnings</li>
-        <li>Category-wise allocation</li>
-        <li>Monthly budget planning</li>
-    </ul>
-    
-    <h2>4.3 Bill Management</h2>
-    <ul>
-        <li>Add recurring bills</li>
-        <li>Due date tracking</li>
-        <li>Payment status monitoring</li>
-        <li>Bill reminder system</li>
-    </ul>
-    
-    <h2>4.4 Reporting & Analytics</h2>
-    <ul>
-        <li>Real-time balance calculation</li>
-        <li>Income vs Expense comparison</li>
-        <li>Category-wise spending analysis</li>
-        <li>Monthly financial summary</li>
-        <li>Transaction history with filters</li>
-    </ul>
-    
-    <h2>4.5 User Interface Features</h2>
-    <div class="two-column">
-        <div>
-            <h3>Visual Feedback</h3>
-            <ul>
-                <li>Color-coded balance (Green/Red)</li>
-                <li>Toast notifications</li>
-                <li>Form validation messages</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Navigation</h3>
-            <ul>
-                <li>Main dashboard</li>
-                <li>History view</li>
-                <li>Settings screen</li>
-                <li>Budget management</li>
-            </ul>
-        </div>
-    </div>
-    
+  <!-- Project detail drawer -->
+  <div class="overlay" id="projectOverlay" aria-hidden="true">
+    <aside class="drawer">
+      <button class="close-drawer magnetic" id="closeDrawer" aria-label="Close">×</button>
+      <div class="drawer-top"><span id="drawerNumber">01</span><span id="drawerCategory">ANDROID</span></div>
+      <div class="drawer-hero"><div><div class="eyebrow"><i></i> PROJECT DETAILS</div><h2 id="drawerTitle">Expense Manager</h2><p id="drawerDescription"></p></div><div class="drawer-symbol" id="drawerSymbol">₹</div></div>
+      <div class="drawer-block"><span class="label">STATUS</span><div class="status-pill" id="drawerStatus">MAJOR PROJECT</div></div>
+      <div class="drawer-block"><span class="label">TECHNOLOGY</span><div class="tech-list" id="drawerTech"></div></div>
+      <div class="drawer-block"><span class="label">FEATURES</span><div class="feature-grid" id="drawerFeatures"></div></div>
+      <div class="drawer-block ai-disclosure"><span>✦ AI-ASSISTED PROJECT</span><p>This project is presented as an AI-assisted build with human direction, testing and refinement by MD DILSHAD ALAM.</p></div>
+      <div class="drawer-actions"><a class="btn btn-primary magnetic" id="drawerDemo" href="#">OPEN DEMO <span>↗</span></a><a class="btn btn-ghost magnetic" id="drawerReport" href="#">VIEW REPORT <span>↗</span></a></div>
+    </aside>
+  </div>
 
-    <div class="footer">
-        Page 12
-    </div>
-</div>
-
-<!-- PAGE 13: SCREENSHOTS -->
-<div class="a4-page">
-        <h2>4.6 Technical Features</h2>
-    <ul>
-        <li>Offline functionality</li>
-        <li>Local data storage</li>
-        <li>Data validation</li>
-        <li>Error handling</li>
-        <li>Memory management</li>
-    </ul>
-    
-    <h1>5. APPLICATION SCREENS</h1>
-    
-    <h2>5.1 Main Screen</h2>
-    <div class="code-block" style="text-align: center;">
-┌─────────────────────────┐
-│   Current Balance       │
-│   ₹1,250.50            │
-│   (Green if positive)   │
-├─────────────────────────┤
-│   Amount: [500.00    ]  │
-│                         │
-│   Type:   [Expense  ▼]  │
-│                         │
-│   Desc:   [Lunch     ]  │
-│                         │
-│   [ADD TRANSACTION]     │
-│                         │
-│   [VIEW HISTORY   ]     │
-└─────────────────────────┘
-    </div>
-    
-    <p><span class="bold">Features:</span> Balance display, transaction input form, type selection spinner, action buttons, color-coded feedback.</p>
-    
-    <h2>5.2 History Screen</h2>
-    <div class="code-block" style="text-align: center;">
-┌─────────────────────────┐
-│   TRANSACTION HISTORY   │
-├─────────────────────────┤
-│  ₹500 - Food - Lunch    │
-│  15 Dec 2025 14:30      │
-│                         │
-│  ₹3000 - Income - Salary│
-│  14 Dec 2025 10:00      │
-│                         │
-│  ₹800 - Shopping - Cloth│
-│  13 Dec 2025 16:45      │
-└─────────────────────────┘
-    </div>
-    
-    <p><span class="bold">Features:</span> Chronological listing, amount-category-description format, date-time stamps, scrollable view.</p>
-    
-    <h2>5.3 Budget Screen</h2>
-    <div class="code-block" style="text-align: center;">
-┌─────────────────────────┐
-│   BUDGET MANAGEMENT     │
-├─────────────────────────┤
-│  Food: ₹5000           │
-│  Spent: ₹3200 (64%)    │
-│                         │
-│  Shopping: ₹3000       │
-│  Spent: ₹3500 (117%)   │
-│                         │
-│  Travel: ₹2000         │
-│  Spent: ₹1200 (60%)    │
-└─────────────────────────┘
-    </div>
-    
-    <p><span class="bold">Features:</span> Category-wise budgets, spending progress, percentage calculation, overspending alerts.</p>
-    
-    <div class="footer">
-        Page 13
-    </div>
-</div>
-
-<!-- PAGE 14: TESTING -->
-<div class="a4-page">
-    <h1>6. TESTING</h1>
-    
-    <h2>6.1 Test Cases</h2>
-    <table class="compact-table">
-        <tr>
-            <th>Test Case</th>
-            <th>Input</th>
-            <th>Expected</th>
-            <th>Result</th>
-        </tr>
-        <tr>
-            <td>Add Income</td>
-            <td>Amount: 5000, Type: Income</td>
-            <td>Balance +5000</td>
-            <td>✅ Pass</td>
-        </tr>
-        <tr>
-            <td>Add Expense</td>
-            <td>Amount: 1000, Type: Expense</td>
-            <td>Balance -1000</td>
-            <td>✅ Pass</td>
-        </tr>
-        <tr>
-            <td>Empty Amount</td>
-            <td>Amount: "", Type: Expense</td>
-            <td>Error Message</td>
-            <td>✅ Pass</td>
-        </tr>
-        <tr>
-            <td>Negative Balance</td>
-            <td>Expenses > Income</td>
-            <td>Red Color</td>
-            <td>✅ Pass</td>
-        </tr>
-        <tr>
-            <td>View History</td>
-            <td>Multiple transactions</td>
-            <td>All displayed</td>
-            <td>✅ Pass</td>
-        </tr>
-        <tr>
-            <td>Budget Calculation</td>
-            <td>Food: 3200/5000</td>
-            <td>64% shown</td>
-            <td>✅ Pass</td>
-        </tr>
-    </table>
-    
-    <h2>6.2 Performance Testing</h2>
-    <table class="compact-table">
-        <tr>
-            <th>Operation</th>
-            <th>Response Time</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>Add Transaction</td>
-            <td>&lt; 100ms</td>
-            <td>✅ Excellent</td>
-        </tr>
-        <tr>
-            <td>Balance Calculation</td>
-            <td>&lt; 50ms</td>
-            <td>✅ Excellent</td>
-        </tr>
-        <tr>
-            <td>History Loading</td>
-            <td>&lt; 200ms</td>
-            <td>✅ Good</td>
-        </tr>
-        <tr>
-            <td>App Startup</td>
-            <td>&lt; 500ms</td>
-            <td>✅ Good</td>
-        </tr>
-    </table>
-    
-    <h2>6.3 Compatibility Testing</h2>
-    <ul>
-        <li><span class="bold">Android 5.0 (Lollipop):</span> ✅ Fully compatible</li>
-        <li><span class="bold">Android 6.0 (Marshmallow):</span> ✅ Fully compatible</li>
-        <li><span class="bold">Android 8.0 (Oreo):</span> ✅ Fully compatible</li>
-        <li><span class="bold">Android 10:</span> ✅ Fully compatible</li>
-        <li><span class="bold">Android 12+:</span> ✅ Fully compatible</li>
-    </ul>
-    
-    <h2>6.4 User Acceptance Testing</h2>
-    <p><span class="bold">Test Group:</span> 20 college students</p>
-    <p><span class="bold">Average Rating:</span> 4.5/5.0</p>
-    <p><span class="bold">Feedback:</span> Easy to use, helpful for budget tracking, intuitive interface</p>
-    
-    <div class="footer">
-        Page 14
-    </div>
-</div>
-
-<!-- PAGE 15: CHALLENGES -->
-<div class="a4-page">
-    <h1>7. CHALLENGES & SOLUTIONS</h1>
-    
-    <h2>7.1 Technical Challenges</h2>
-    
-    <h3>Challenge 1: Real-time Balance Update</h3>
-    <p><span class="bold">Problem:</span> Updating balance immediately after transaction addition</p>
-    <p><span class="bold">Solution:</span> Implemented database trigger-like functionality using Java methods that recalculate balance on every transaction addition</p>
-    
-    <h3>Challenge 2: Database Schema Design</h3>
-    <p><span class="bold">Problem:</span> Designing efficient tables for transactions, budgets, and bills</p>
-    <p><span class="bold">Solution:</span> Created normalized database with proper relationships and indexes for optimal performance</p>
-    
-    <h3>Challenge 3: UI Responsiveness</h3>
-    <p><span class="bold">Problem:</span> Making interface responsive across different screen sizes</p>
-    <p><span class="bold">Solution:</span> Used ConstraintLayout and relative measurements for adaptive UI</p>
-    
-    <h3>Challenge 4: Data Validation</h3>
-    <p><span class="bold">Problem:</span> Preventing invalid data entry</p>
-    <p><span class="bold">Solution:</span> Implemented comprehensive input validation with user-friendly error messages</p>
-    
-    <h2>7.2 Learning Outcomes</h2>
-    <div class="two-column">
-        <div>
-            <h3>Technical Skills</h3>
-            <ul>
-                <li>Android application development</li>
-                <li>SQLite database management</li>
-                <li>Java programming</li>
-                <li>UI/UX design principles</li>
-                <li>Debugging and testing</li>
-            </ul>
-        </div>
-        <div>
-            <h3>Soft Skills</h3>
-            <ul>
-                <li>Project planning</li>
-                <li>Team collaboration</li>
-                <li>Problem solving</li>
-                <li>Time management</li>
-                <li>Documentation</li>
-            </ul>
-        </div>
-    </div>
-    
-    <h2>7.3 Bugs and Fixes</h2>
-    <table class="compact-table">
-        <tr>
-            <th>Bug</th>
-            <th>Solution</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>Empty description error</td>
-            <td>Added default description</td>
-            <td>✅ Fixed</td>
-        </tr>
-        <tr>
-            <td>Balance color not updating</td>
-            <td>Added refresh method call</td>
-            <td>✅ Fixed</td>
-        </tr>
-        <tr>
-            <td>Database upgrade issue</td>
-            <td>Improved onUpgrade method</td>
-            <td>✅ Fixed</td>
-        </tr>
-    </table>
-    
-    <div class="footer">
-        Page 15
-    </div>
-</div>
-
-<!-- Page 16: FUTURE SCOPE -->
-<div class="a4-page" style="padding-top: 15px;">
-    <h1>8. FUTURE ENHANCEMENTS</h1>
-    
-    <h2>8.1 Planned Features</h2>
-    
-    <h3>Short-term (Next 6 Months)</h3>
-    <ul>
-        <li><span class="bold">Cloud Backup:</span> Firebase integration for data sync</li>
-        <li><span class="bold">Charts & Graphs:</span> Visual representation of spending</li>
-        <li><span class="bold">Recurring Transactions:</span> Automated regular entries</li>
-        <li><span class="bold">Multi-Currency:</span> Support for different currencies</li>
-        <li><span class="bold">Dark Mode:</span> Alternate color theme</li>
-    </ul>
-    
-    <h3>Medium-term (6-12 Months)</h3>
-    <ul>
-        <li><span class="bold">Bank Integration:</span> Automatic transaction import</li>
-        <li><span class="bold">Investment Tracking:</span> Stocks and mutual funds</li>
-        <li><span class="bold">Family Sharing:</span> Shared budgets and expenses</li>
-        <li><span class="bold">Bill Payment:</span> Direct bill payment through app</li>
-        <li><span class="bold">AI Insights:</span> Spending pattern analysis</li>
-    </ul>
-    
-    <h3>Long-term (1-2 Years)</h3>
-    <ul>
-        <li><span class="bold">Cross-platform:</span> iOS and Web versions</li>
-        <li><span class="bold">Advanced Analytics:</span> Predictive budgeting</li>
-        <li><span class="bold">Tax Calculation:</span> Automated tax planning</li>
-        <li><span class="bold">Credit Score:</span> Financial health monitoring</li>
-        <li><span class="bold">Marketplace:</span> Financial product recommendations</li>
-    </ul>
-    
-    <h2>8.2 Technical Improvements</h2>
-    <div class="two-column" style="margin: 0;">
-       
-            <h3>Architecture</h3>
-            <ul>
-                <li>Migrate to MVVM pattern</li>
-                <li>Implement Room Database</li>
-                <li>Use LiveData and ViewModel</li>
-                <li>Add dependency injection</li>
-            </ul>
-        
-        
-            <h3>Technology</h3>
-            <ul>
-                <li>Convert to Kotlin</li>
-                <li>Use Jetpack Compose</li>
-                <li>Implement Coroutines</li>
-                <li>Add unit testing</li>
-            </ul>
-        
-    </div>
-    
-    <h2>8.3 Market Expansion</h2>
-   
-    <ul>
-        <li><span class="bold">Students:</span> Scholarship tracking, educational expenses</li>
-        <li><span class="bold">Freelancers:</span> Project-based budgeting, invoice management</li>
-        <li><span class="bold">Small Businesses:</span> Expense tracking, tax preparation</li>
-        <li><span class="bold">Families:</span> Shared budgets, children's allowance</li>
-    </ul>
-    
-    <div class="footer">
-        Page 16
-    </div>
-</div>
-
-<!-- PAGE 17: CONCLUSION -->
-<div class="a4-page" >
-    <h1>9. CONCLUSION</h1>
-    
-    <h2>9.1 Project Summary</h2>
-    <p>The <span class="bold">Money Handling</span> application has been successfully developed as a comprehensive personal finance management system for Android. The project achieved all its objectives and delivered a fully functional application with intuitive interface and robust backend.</p>
-    
-    <h2>9.2 Key Achievements</h2>
-    <ul>
-        <li>Successfully developed complete Android application</li>
-        <li>Implemented real-time financial tracking</li>
-        <li>Created user-friendly interface with visual feedback</li>
-        <li>Designed efficient database system</li>
-        <li>Completed comprehensive testing</li>
-        <li>Delivered complete documentation</li>
-    </ul>
-    
-    <h2>9.3 Technical Deliverables</h2>
-    <table class="compact-table" >
-        <tr>
-            <th>Deliverable</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td>Android Application (APK)</td>
-            <td>✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Source Code</td>
-            <td>✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Database Design</td>
-            <td>✅ Completed</td>
-        </tr>
-        <tr>
-            <td>User Interface</td>
-            <td>✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Testing Reports</td>
-            <td>✅ Completed</td>
-        </tr>
-        <tr>
-            <td>Project Documentation</td>
-            <td>✅ Completed</td>
-        </tr>
-    </table>
-    
-    <h2>9.4 Educational Value</h2>
-    <p>This project provided invaluable practical experience in:</p>
-    <div class="two-column">
-        <div>
-            <ul>
-                <li>Software development lifecycle</li>
-                <li>Mobile application development</li>
-                <li>Database design and management</li>
-                <li>UI/UX design principles</li>
-            </ul>
-        </div>
-        <div>
-            <ul>
-                <li>Problem-solving skills</li>
-                <li>Team collaboration</li>
-                <li>Project documentation</li>
-                <li>Quality assurance</li>
-            </ul>
-        </div>
-    </div>
-    
-   
-    
-    <div class="footer">
-        Page 17
-    </div>
-</div>
- <!-- last page -->
-  <div class="a4-page" >
-       <h2>9.5 Final Remarks</h2>
-    <p>The Money Handling application stands as a testament to our learning and growth as computer science students. It demonstrates our ability to conceptualize, design, develop, and deliver a complete software solution that meets real-world requirements while adhering to industry standards.</p>
-    
-    <p>This project has equipped us with the skills and confidence to undertake more complex software development projects in the future. We believe that the knowledge and experience gained will be invaluable in our professional careers.</p>
-    
-    <div style="margin-top: 5px; text-align: center;">
-        <p class="bold">--- PROJECT COMPLETED SUCCESSFULLY ---</p>
-        <p>Maulana Azad College of Engineering and Technology</p>
-        <p>Department of Computer Science & Engineering</p>
-        <p>December 16, 2025</p>
-    </div>
-    <br><br><br>
-    <img src="money-handling-assets-end.png" alt="" align="center" style="display: block; margin: 20px auto; width: 350px; height: auto;">
-    <div class="footer">
-        Page 18
-    </div>
-    </div>
-<!-- Print Button -->
-<div class="no-print" style="text-align: center; margin: 20px;">
-    <button onclick="window.print()" style="padding: 12px 24px; background: #000; color: white; 
-            border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
-        🖨️ Print 12-Page Report
-    </button>
-    <p style="margin-top: 10px; color: #666; font-size: 12pt;">
-        Click to print all 12 pages. Paper size: A4
-    </p>
-</div>
-
-<script>
-    // Automatically set page numbers
-    document.addEventListener('DOMContentLoaded', function() {
-        const pages = document.querySelectorAll('.a4-page');
-        pages.forEach((page, index) => {
-            const footer = page.querySelector('.footer');
-            if (footer) {
-                footer.innerHTML = `Page ${index + 1}`;
-            }
-        });
-    });
-</script>
-
+  <div class="toast" id="toast"><span>✦</span><b id="toastText">Ready</b></div>
+  <script src="app.js"></script>
 </body>
 </html>
